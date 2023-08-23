@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Uid:</strong>
+  <%= @identity_document_type.uid %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @identity_document_type.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @identity_document_type.description %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @identity_document_type.status %>
+</p>
+
+<p>
+  <strong>Account:</strong>
+  <%= @identity_document_type.account_id %>
+</p>
+
+<%= link_to 'Edit', edit_identity_document_type_path(@identity_document_type) %> |
+<%= link_to 'Back', identity_document_types_path %>

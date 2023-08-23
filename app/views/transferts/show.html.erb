@@ -1,0 +1,116 @@
+
+<div class="br-pagebody mg-b-30">
+  <div class="br-section-wrapper">
+    <div class="headers mg-b-20">
+        
+      <h2>Fiche transfert</h2>
+      <hr />
+    </div>
+
+      <div id="show-transfert">
+       
+        <p>
+      <strong>Uid:</strong>
+      <%= @transfert.uid %>
+    </p>
+
+<p>
+  <strong>Mtcn:</strong>
+  <%= @transfert.mtcn %>
+</p>
+
+<p>
+  <strong>Currency:</strong>
+  <%= @transfert.currency_id %>
+</p>
+
+<p>
+  <strong>Reason:</strong>
+  <%= @transfert.reason %>
+</p>
+
+<p>
+  <strong>Amount incl tax:</strong>
+  <%= @transfert.amount_incl_tax %>
+</p>
+
+<p>
+  <strong>Sender name:</strong>
+  <%= @transfert.sender_name %>
+</p>
+
+<p>
+  <strong>Sender first name:</strong>
+  <%= @transfert.sender_first_name %>
+</p>
+
+<p>
+  <strong>Sender gender:</strong>
+  <%= @transfert.sender_gender %>
+</p>
+
+<p>
+  <strong>Sender phone:</strong>
+  <%= @transfert.sender_phone %>
+</p>
+
+<p>
+  <strong>Sender id type:</strong>
+  <%= @transfert.sender_identity_document_type_id %>
+</p>
+
+<p>
+  <strong>Sender country:</strong>
+  <%= @transfert.sender_country %>
+</p>
+
+<p>
+  <strong>Sender city:</strong>
+  <%= @transfert.sender_city %>
+</p>
+
+<p>
+  <strong>Beneficiary name:</strong>
+  <%= @transfert.beneficiary_name %>
+</p>
+
+<p>
+  <strong>Beneficiary first name:</strong>
+  <%= @transfert.beneficiary_first_name %>
+</p>
+
+<p>
+  <strong>Beneficiary gender:</strong>
+  <%= @transfert.beneficiary_gender %>
+</p>
+
+<p>
+  <strong>Beneficiary phone:</strong>
+  <%= @transfert.beneficiary_phone %>
+</p>
+
+<p>
+  <strong>Beneficiary country:</strong>
+  <%= @transfert.beneficiary_country %>
+</p>
+
+<p>
+  <strong>Beneficiary city:</strong>
+  <%= @transfert.beneficiary_city %>
+</p>
+
+
+      </div>
+
+  </div>
+  </div>
+  </div>
+                    
+
+
+             
+
+
+
+<%= link_to 'Edit', edit_transfert_path(@transfert) %> |
+<%= link_to 'Back', transferts_path %>

@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Uid:</strong>
+  <%= @withdrawal.uid %>
+</p>
+
+<p>
+  <strong>Transfert:</strong>
+  <%= @withdrawal.transfert_id %>
+</p>
+
+<p>
+  <strong>Beneficiary identity document type:</strong>
+  <%= @withdrawal.beneficiary_identity_document_type_id %>
+</p>
+
+<p>
+  <strong>Beneficiary identity document code:</strong>
+  <%= @withdrawal.beneficiary_identity_document_code %>
+</p>
+
+<p>
+  <strong>Amount incl tax:</strong>
+  <%= @withdrawal.amount_incl_tax %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @withdrawal.status %>
+</p>
+
+<p>
+  <strong>Account:</strong>
+  <%= @withdrawal.account_id %>
+</p>
+
+<%= link_to 'Edit', edit_withdrawal_path(@withdrawal) %> |
+<%= link_to 'Back', withdrawals_path %>

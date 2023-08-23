@@ -61,3 +61,46 @@ unless Account.all.present?
 else
     accounts = Account.all
 end
+
+
+# Currencies
+unless Currency.all.present?
+    currencies = Currency.create(
+        [
+            {name: "Euro", iso_code: "EUR", symbol_position: "Gauche", account_id: accounts.first.id},
+            {name: "Dollar US", iso_code: "USD", symbol_position: "Gauche", account_id: accounts.first.id},
+            {name: "Franc CFA", iso_code: "XOF", symbol_position: "Droite", account_id: accounts.first.id},
+            
+            
+        ])
+else    
+    currencies =  Currency.all
+
+end
+
+#Identity document type
+unless IdentityDocumentType.all.present?
+    identity_document_types = IdentityDocumentType.create([
+        {
+            name: "Carte d'identité nationale", 
+            account_id: accounts.first.id,   
+        },
+        {
+            name: "NINA", 
+            account_id: accounts.first.id,   
+        },
+        {
+            name: "Passeport", 
+            account_id: accounts.first.id,   
+        },
+        {
+            name: "Permis de conduire", 
+            account_id: accounts.first.id,   
+        },
+        
+
+    ])
+else  
+    identity_document_types = IdentityDocumentType.all
+
+end

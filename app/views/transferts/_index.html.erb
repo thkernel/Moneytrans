@@ -1,0 +1,28 @@
+<% @transferts.each do |transfert| %>
+      <tr>
+        <td><%= transfert.created_at.strftime("%d/%m/%Y") %></td>
+        <td><%= transfert.mtcn %></td>
+        <td><%= transfert.reason %></td>
+        <td><%= number_to_currency transfert.amount_incl_tax, unit: "", seperator: ",", delimiter: " " %></td>
+        <td><%= transfert.currency.iso_code %></td>
+        <td><%= "#{transfert.sender_name} #{transfert.sender_first_name}"  %></td>
+      
+        
+        <td><%= "#{transfert.beneficiary_name} #{transfert.beneficiary_first_name}" %></td>
+       
+        
+        <td><%= transfert.status %></td>
+        <td>
+      <div class="action-buttons">
+      <%= link_to raw('<i class="fa fa-pencil" aria-hidden="true"></i>
+'),  edit_transfert_path(transfert), title: "Modifier", remote: true %>
+
+
+
+
+<%= link_to raw('<i class="far fa-trash-alt" aria-hidden="true"></i>
+'), transfert_delete_path(transfert), remote: true, title: "Supprimer", class: "delete" %>
+</div>
+</td>
+      </tr>
+    <% end %>

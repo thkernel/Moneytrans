@@ -48,20 +48,12 @@ class Account < ApplicationRecord
 
   belongs_to :role
 
-  has_many :departments, dependent: :destroy#, optional: true
-  has_many :service_types, dependent: :destroy
-  has_many :services, dependent: :destroy
-  has_many :health_professional_types, dependent: :destroy
-  has_many :health_professionals, dependent: :destroy
-  has_many :patients, dependent: :destroy
-  has_many :tickets, dependent: :destroy
-  has_many :appointments, dependent: :destroy
-  has_many :analysis_categories, dependent: :destroy
-  has_many :analysis_methods, dependent: :destroy
-  has_many :analysis_samples, dependent: :destroy
-  has_many :analyses, dependent: :destroy
-  has_many :analysis_requests, dependent: :destroy
-  has_many :insurances, dependent: :destroy
+  has_many :transferts, dependent: :destroy#, optional: true
+  has_many :withdrawals, dependent: :destroy
+  has_many :identity_document_types, dependent: :destroy
+  has_many :currencies, dependent: :destroy
+
+  
   
 
   # Add nested attributes for profile.

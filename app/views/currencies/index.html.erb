@@ -1,0 +1,43 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Currencies</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Uid</th>
+      <th>Name</th>
+      <th>Iso code</th>
+      <th>Symbol</th>
+      <th>Decimal symbol</th>
+      <th>Symbol position</th>
+      <th>Thousand separator</th>
+      <th>Status</th>
+      <th>Account</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @currencies.each do |currency| %>
+      <tr>
+        <td><%= currency.uid %></td>
+        <td><%= currency.name %></td>
+        <td><%= currency.iso_code %></td>
+        <td><%= currency.symbol %></td>
+        <td><%= currency.decimal_symbol %></td>
+        <td><%= currency.symbol_position %></td>
+        <td><%= currency.thousand_separator %></td>
+        <td><%= currency.status %></td>
+        <td><%= currency.account_id %></td>
+        <td><%= link_to 'Show', currency %></td>
+        <td><%= link_to 'Edit', edit_currency_path(currency) %></td>
+        <td><%= link_to 'Destroy', currency, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Currency', new_currency_path %>

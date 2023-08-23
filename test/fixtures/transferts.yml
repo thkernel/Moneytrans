@@ -1,0 +1,76 @@
+# == Schema Information
+#
+# Table name: transferts
+#
+#  id                                 :bigint           not null, primary key
+#  uid                                :string
+#  mtcn                               :bigint
+#  currency_id                        :bigint
+#  reason                             :string
+#  amount_incl_tax                    :float            default(0.0)
+#  sender_name                        :string
+#  sender_first_name                  :string
+#  sender_gender                      :string
+#  sender_phone                       :string
+#  sender_identity_document_type_id   :bigint
+#  sender_identity_document_type_code :string
+#  sender_country                     :string
+#  sender_city                        :string
+#  beneficiary_name                   :string
+#  beneficiary_first_name             :string
+#  beneficiary_gender                 :string
+#  beneficiary_phone                  :string
+#  beneficiary_country                :string
+#  beneficiary_city                   :string
+#  withdrawal_date                    :datetime
+#  status                             :string
+#  account_id                         :bigint           not null
+#  created_at                         :datetime         not null
+#  updated_at                         :datetime         not null
+#
+
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  uid: MyString
+  mtcn: 1
+  currency: one
+  reason: MyString
+  amount_incl_tax: 1.5
+  sender_name: MyString
+  sender_first_name: MyString
+  sender_gender: MyString
+  sender_phone: MyString
+  sender_id_type: MyString
+  sender_country: MyString
+  sender_city: MyString
+  beneficiary_name: MyString
+  beneficiary_first_name: MyString
+  beneficiary_gender: MyString
+  beneficiary_phone: MyString
+  beneficiary_country: MyString
+  beneficiary_city: MyString
+  status: MyString
+  account: one
+
+two:
+  uid: MyString
+  mtcn: 1
+  currency: two
+  reason: MyString
+  amount_incl_tax: 1.5
+  sender_name: MyString
+  sender_first_name: MyString
+  sender_gender: MyString
+  sender_phone: MyString
+  sender_id_type: MyString
+  sender_country: MyString
+  sender_city: MyString
+  beneficiary_name: MyString
+  beneficiary_first_name: MyString
+  beneficiary_gender: MyString
+  beneficiary_phone: MyString
+  beneficiary_country: MyString
+  beneficiary_city: MyString
+  status: MyString
+  account: two

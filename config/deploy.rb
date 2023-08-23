@@ -4,9 +4,9 @@ lock "~> 3.17.0"
 set :stages, %w(production staging)
 set :default_stage, "production"
 
-set :application, "medisys"
-set :repo_url, "https://github.com/thkernel/MediSys.git"
-#set :ssh_options, { auth_methods: %w(password), password: "AMOSXZIBITDE88" }
+set :application, "Moneytrans"
+set :repo_url, "https://github.com/thkernel/Moneytrans.git"
+set :ssh_options, { auth_methods: %w(password), password: "AMOSXZIBITDE88" }
 
 set :git_http_username, 'thkernel'
 ask(:github_token, "github_token", echo: false)

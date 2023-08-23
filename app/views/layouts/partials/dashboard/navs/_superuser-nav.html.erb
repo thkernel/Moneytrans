@@ -6,22 +6,17 @@
           <%= link_to  raw('<i class="fa fa-home tx-20"></i> <span class="menu-item-label">Tableau de bord</span>'), dashboard_path, class: "br-menu-link #{current? "active", dashboard_path}" %>
         </li><!-- br-menu-item -->
 
-
         <li class="br-menu-item">
-          <%= link_to  raw('<i class="fas fa-sign-in-alt tx-20"></i> <span class="menu-item-label">Dépôts</span>'), root_path, class: "br-menu-link #{current? "active", root_path}" %>
+          <%= link_to  raw('<i class="fas fa-exchange-alt tx-20"></i> <span class="menu-item-label">Transferts</span>'), transferts_path, class: "br-menu-link #{current? "active", transferts_path}" %>
         </li><!-- br-menu-item -->
-        
 
        
 
         <li class="br-menu-item">
-          <%= link_to  raw('<i class="fas fa-sign-out-alt tx-20"></i> <span class="menu-item-label">Retraits</span>'), root_path, class: "br-menu-link #{current? "active", root_path}" %>
+          <%= link_to  raw('<i class="fas fa-sign-out-alt tx-20"></i> <span class="menu-item-label">Retraits</span>'), withdrawals_path, class: "br-menu-link #{current? "active", withdrawals_path}" %>
         </li><!-- br-menu-item -->
 
-        <li class="br-menu-item">
-          <%= link_to  raw('<i class="fas fa-exchange-alt tx-20"></i> <span class="menu-item-label">Transferts</span>'), root_path, class: "br-menu-link #{current? "active", root_path}" %>
-        </li><!-- br-menu-item -->
-
+        
 
             
 
@@ -36,24 +31,10 @@
           <ul class="br-menu-sub">
 
             <li class="sub-item">
-                <%= link_to  "En attente de prélèvements", root_path, class: "sub-link #{current? "active", root_path}" %>
+                <%= link_to  "Transferts", root_path, class: "sub-link #{current? "active", root_path}" %>
             </li>
 
-            <li class="sub-item">
-                <%= link_to  "Demandes d'analyse", root_path, class: "sub-link #{current? "active", root_path}" %>
-            </li>
-            <li class="sub-item">
-                <%= link_to  "Analyses", root_path, class: "sub-link #{current? "active", root_path}" %>
-            </li>
-            <li class="sub-item">
-                <%= link_to  "Catégories d'analyse", root_path, class: "sub-link #{current? "active", root_path}" %>
-            </li>
-            <li class="sub-item">
-                <%= link_to  "Échantillons d'analyse", root_path, class: "sub-link #{current? "active", root_path}" %>
-            </li>
-            <li class="sub-item">
-                <%= link_to  "Méthodes d'analyse", root_path, class: "sub-link #{current? "active", root_path}" %>
-            </li>
+            
           </ul>
         </li>
 
@@ -85,6 +66,13 @@
 
             <li class="sub-item">
                 <%= link_to  "Utilisateurs", all_accounts_path, class: "sub-link #{current? "active", all_accounts_path}" %>
+            </li>
+
+            <li class="sub-item">
+                <%= link_to  "Devises", currencies_path, class: "sub-link #{current? "active", currencies_path}" %>
+            </li>
+            <li class="sub-item">
+                <%= link_to  "Types documents identités", identity_document_types_path, class: "sub-link #{current? "active", identity_document_types_path}" %>
             </li>
 
            

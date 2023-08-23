@@ -1,8 +1,27 @@
 Rails.application.routes.draw do
+  
+
+  resources :withdrawals do 
+    get "delete"
+  end
+
+  resources :identity_document_types, path: "identity-document-types" do 
+    get "delete"
+  end
+  
+  
+  resources :transferts do 
+    get "delete"
+  end
+
+  resources :currencies do 
+    get "delete"
+  end
+
   #root to: "front#home"
    get "/dashboard" => "dashboard#index", as: :dashboard
 
-  
+  get 'search/transferts' => 'search#search_transferts', as: :search_transferts 
   
 
   get "/accounts"     => "custom_accounts#index", as: :all_accounts 

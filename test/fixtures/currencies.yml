@@ -1,0 +1,41 @@
+# == Schema Information
+#
+# Table name: currencies
+#
+#  id                 :bigint           not null, primary key
+#  uid                :string
+#  name               :string
+#  iso_code           :string
+#  symbol             :string
+#  decimal_symbol     :string
+#  symbol_position    :string
+#  thousand_separator :string
+#  status             :string
+#  account_id         :bigint           not null
+#  created_at         :datetime         not null
+#  updated_at         :datetime         not null
+#
+
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  uid: MyString
+  name: MyString
+  iso_code: MyString
+  symbol: MyString
+  decimal_symbol: MyString
+  symbol_position: MyString
+  thousand_separator: MyString
+  status: MyString
+  account: one
+
+two:
+  uid: MyString
+  name: MyString
+  iso_code: MyString
+  symbol: MyString
+  decimal_symbol: MyString
+  symbol_position: MyString
+  thousand_separator: MyString
+  status: MyString
+  account: two

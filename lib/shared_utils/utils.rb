@@ -41,6 +41,18 @@ module SharedUtils
             end
         end
 
+        def generate_random_mtcn
+            current_record = self
+          
+            if current_record.present?
+                unless current_record.mtcn.present? 
+                    begin
+                        current_record.mtcn = SecureRandom.random_number(10_000_000_000)
+                    end while current_record.class.where(mtcn: current_record.mtcn).exists?
+                end
+            end
+        end
+
         
     end
 

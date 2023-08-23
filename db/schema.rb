@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_08_22_163320) do
+ActiveRecord::Schema.define(version: 2023_08_23_141552) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -86,6 +86,21 @@ ActiveRecord::Schema.define(version: 2023_08_22_163320) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "currencies", force: :cascade do |t|
+    t.string "uid"
+    t.string "name"
+    t.string "iso_code"
+    t.string "symbol"
+    t.string "decimal_symbol"
+    t.string "symbol_position"
+    t.string "thousand_separator"
+    t.string "status"
+    t.bigint "account_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["account_id"], name: "index_currencies_on_account_id"
+  end
+
   create_table "customers", force: :cascade do |t|
     t.string "uid"
     t.string "first_name"
@@ -112,6 +127,17 @@ ActiveRecord::Schema.define(version: 2023_08_22_163320) do
     t.string "status"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "identity_document_types", force: :cascade do |t|
+    t.string "uid"
+    t.string "name"
+    t.text "description"
+    t.string "status"
+    t.bigint "account_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["account_id"], name: "index_identity_document_types_on_account_id"
   end
 
   create_table "permission_items", force: :cascade do |t|
@@ -161,6 +187,36 @@ ActiveRecord::Schema.define(version: 2023_08_22_163320) do
     t.index ["account_id"], name: "index_smtp_server_settings_on_account_id"
   end
 
+  create_table "transferts", force: :cascade do |t|
+    t.string "uid"
+    t.bigint "mtcn"
+    t.bigint "currency_id"
+    t.string "reason"
+    t.float "amount_incl_tax", default: 0.0
+    t.string "sender_name"
+    t.string "sender_first_name"
+    t.string "sender_gender"
+    t.string "sender_phone"
+    t.bigint "sender_identity_document_type_id"
+    t.string "sender_identity_document_type_code"
+    t.string "sender_country"
+    t.string "sender_city"
+    t.string "beneficiary_name"
+    t.string "beneficiary_first_name"
+    t.string "beneficiary_gender"
+    t.string "beneficiary_phone"
+    t.string "beneficiary_country"
+    t.string "beneficiary_city"
+    t.datetime "withdrawal_date"
+    t.string "status"
+    t.bigint "account_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["account_id"], name: "index_transferts_on_account_id"
+    t.index ["currency_id"], name: "index_transferts_on_currency_id"
+    t.index ["sender_identity_document_type_id"], name: "index_transferts_on_sender_identity_document_type_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "uid"
     t.string "first_name"
@@ -173,11 +229,32 @@ ActiveRecord::Schema.define(version: 2023_08_22_163320) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "withdrawals", force: :cascade do |t|
+    t.string "uid"
+    t.bigint "transfert_id", null: false
+    t.bigint "beneficiary_identity_document_type_id"
+    t.string "beneficiary_identity_document_code"
+    t.float "amount_incl_tax", default: 0.0
+    t.string "status"
+    t.bigint "account_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["account_id"], name: "index_withdrawals_on_account_id"
+    t.index ["beneficiary_identity_document_type_id"], name: "index_withdrawals_on_beneficiary_identity_document_type_id"
+    t.index ["transfert_id"], name: "index_withdrawals_on_transfert_id"
+  end
+
   add_foreign_key "accounts", "roles"
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "currencies", "accounts"
+  add_foreign_key "identity_document_types", "accounts"
   add_foreign_key "permission_items", "permissions"
   add_foreign_key "permissions", "features"
   add_foreign_key "permissions", "roles"
   add_foreign_key "smtp_server_settings", "accounts"
+  add_foreign_key "transferts", "accounts"
+  add_foreign_key "transferts", "currencies"
+  add_foreign_key "withdrawals", "accounts"
+  add_foreign_key "withdrawals", "transferts"
 end

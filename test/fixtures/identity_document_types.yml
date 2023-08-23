@@ -1,0 +1,29 @@
+# == Schema Information
+#
+# Table name: identity_document_types
+#
+#  id          :bigint           not null, primary key
+#  uid         :string
+#  name        :string
+#  description :text
+#  status      :string
+#  account_id  :bigint           not null
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
+
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  uid: MyString
+  name: MyString
+  description: MyText
+  status: MyString
+  account: one
+
+two:
+  uid: MyString
+  name: MyString
+  description: MyText
+  status: MyString
+  account: two

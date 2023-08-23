@@ -1,0 +1,35 @@
+# == Schema Information
+#
+# Table name: withdrawals
+#
+#  id                                    :bigint           not null, primary key
+#  uid                                   :string
+#  transfert_id                          :bigint           not null
+#  beneficiary_identity_document_type_id :bigint
+#  beneficiary_identity_document_code    :string
+#  amount_incl_tax                       :float            default(0.0)
+#  status                                :string
+#  account_id                            :bigint           not null
+#  created_at                            :datetime         not null
+#  updated_at                            :datetime         not null
+#
+
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  uid: MyString
+  transfert: one
+  beneficiary_identity_document_type: one
+  beneficiary_identity_document_code: MyString
+  amount_incl_tax: 1.5
+  status: MyString
+  account: one
+
+two:
+  uid: MyString
+  transfert: two
+  beneficiary_identity_document_type: two
+  beneficiary_identity_document_code: MyString
+  amount_incl_tax: 1.5
+  status: MyString
+  account: two
