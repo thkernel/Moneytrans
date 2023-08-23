@@ -1,0 +1,2 @@
+module RestaurantDailyMenusHelper
+end

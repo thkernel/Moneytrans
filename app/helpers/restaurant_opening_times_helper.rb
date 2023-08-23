@@ -1,0 +1,2 @@
+module RestaurantOpeningTimesHelper
+end

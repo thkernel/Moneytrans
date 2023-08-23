@@ -1,0 +1,2 @@
+module AntecedentTypeAntecedentsHelper
+end

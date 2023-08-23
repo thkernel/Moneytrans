@@ -1,0 +1,2 @@
+module AssociatedAnalysisItemsHelper
+end

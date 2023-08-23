@@ -1,0 +1,2 @@
+module ConsultationTemplatesHelper
+end

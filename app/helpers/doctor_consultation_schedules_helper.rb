@@ -1,0 +1,2 @@
+module DoctorConsultationSchedulesHelper
+end

@@ -1,0 +1,2 @@
+module ConsultationFieldsHelper
+end

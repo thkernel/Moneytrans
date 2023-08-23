@@ -1,0 +1,2 @@
+module ComplementaryExamTypesHelper
+end

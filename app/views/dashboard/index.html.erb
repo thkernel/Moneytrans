@@ -1,0 +1,13 @@
+
+<% if current_account.superuser? %>
+    <%= render "dashboard/partials/superuser_dashboard" %>
+<% elsif current_account.user? %>
+     <%= render "dashboard/partials/superuser_dashboard" %>
+<% elsif current_account.customer? %>
+    <%= render "dashboard/partials/customer_dashboard" %>
+
+<% elsif current_account.taximan? %>
+    <%= render "dashboard/partials/taximan_dashboard" %>
+
+<% end %>
+
