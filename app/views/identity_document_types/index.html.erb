@@ -1,35 +1,36 @@
-<p id="notice"><%= notice %></p>
+<div class="br-pageheader mg-30">
+      <nav class="breadcrumb pd-0 mg-0 tx-12">
+        
+        <span class="breadcrumb-item active"><h5>Type de pièces d'identités</h5></span>
+      </nav>
+</div><!-- br-pageheader -->
+<div class="br-pagebody">
+  <div class="br-section-wrapper">
+    <div class="headers mg-b-20">
+        <div class="left-content">
+        </div>
 
-<h1>Identity Document Types</h1>
+        <div class="text-right">
+            <%= link_to raw('<i class="fa fa-plus" aria-hidden="true"></i> Nouveau'), new_identity_document_type_path, class: "btn btn-primary tx-mont tx-medium tx-11 tx-uppercase pd-y-12 pd-x-25 tx-spacing-1", remote: true %>
 
-<table>
+        </div>
+
+    </div>
+
+
+<table id="datatable-default" class="table display responsive nowrap">
   <thead>
     <tr>
-      <th>Uid</th>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Status</th>
-      <th>Account</th>
-      <th colspan="3"></th>
+      
+      <th>Nom</th>
+      <th>Actions</th>
     </tr>
   </thead>
-
-  <tbody>
-    <% @identity_document_types.each do |identity_document_type| %>
-      <tr>
-        <td><%= identity_document_type.uid %></td>
-        <td><%= identity_document_type.name %></td>
-        <td><%= identity_document_type.description %></td>
-        <td><%= identity_document_type.status %></td>
-        <td><%= identity_document_type.account_id %></td>
-        <td><%= link_to 'Show', identity_document_type %></td>
-        <td><%= link_to 'Edit', edit_identity_document_type_path(identity_document_type) %></td>
-        <td><%= link_to 'Destroy', identity_document_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
+<tbody class="identity_document_types">
+    <%= render "index" %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Identity Document Type', new_identity_document_type_path %>
+</div>
+</div>
+<div id="identity-document-type-modal" class="c-modal modal fade" data-backdrop="static"></div>

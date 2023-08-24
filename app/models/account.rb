@@ -52,6 +52,7 @@ class Account < ApplicationRecord
   has_many :withdrawals, dependent: :destroy
   has_many :identity_document_types, dependent: :destroy
   has_many :currencies, dependent: :destroy
+  has_many :identity_document_types, dependent: :destroy
 
   
   

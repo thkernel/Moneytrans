@@ -16,7 +16,11 @@ class WithdrawalsController < ApplicationController
 
   # GET /withdrawals/new
   def new
-    @withdrawal = Withdrawal.new
+    @identity_document_types = IdentityDocumentType.all
+    transfert = Transfert.find_by(uid: params[:transfert])
+
+    @withdrawal = transfert.build_withdrawal()
+    #@withdrawal = Withdrawal.new
   end
 
   # GET /withdrawals/1/edit
@@ -25,11 +29,16 @@ class WithdrawalsController < ApplicationController
 
   # POST /withdrawals or /withdrawals.json
   def create
-    @withdrawal = Withdrawal.new(withdrawal_params)
+    @withdrawal = current_account.withdrawals.build(withdrawal_params)
+    transfert = Transfert.find(@withdrawal.transfert_id)
+    @withdrawal.amount_incl_tax = transfert.amount_incl_tax
 
+    transfert.update_column(:status, "Retiré")
+
+    
     respond_to do |format|
       if @withdrawal.save
-        format.html { redirect_to withdrawal_url(@withdrawal), notice: "Withdrawal was successfully created." }
+        format.html { redirect_to withdrawals_path, notice: "Withdrawal was successfully created." }
         format.json { render :show, status: :created, location: @withdrawal }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -64,11 +73,11 @@ class WithdrawalsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_withdrawal
-      @withdrawal = Withdrawal.find(params[:id])
+      @withdrawal = Withdrawal.find_by(uid: params[:id])
     end
 
     # Only allow a list of trusted parameters through.
     def withdrawal_params
-      params.require(:withdrawal).permit(:uid, :transfert_id, :beneficiary_identity_document_type_id, :beneficiary_identity_document_code, :amount_incl_tax, :status, :account_id)
+      params.require(:withdrawal).permit(:transfert_id, :beneficiary_identity_document_type_id, :beneficiary_identity_document_code, :beneficiary_identity_document)
     end
 end

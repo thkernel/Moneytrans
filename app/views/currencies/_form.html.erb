@@ -1,62 +1,48 @@
-<%= form_with(model: currency) do |form| %>
-  <% if currency.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(currency.errors.count, "error") %> prohibited this currency from being saved:</h2>
+<%= form_with(model: currency, local: false) do |form| %>
+   <div class="modal-body">
+    <ul class="errors"></ul>
 
-      <ul>
-        <% currency.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+    <div class="row">
+      <div class="col-md">
+        <div class="form-group">
+          <%= form.label :name, "Nom", class: "required" %>
+          <%= form.text_field :name, class: "form-control", placeholder: "Nom", required: true %>
+        </div>
+
+        <div class="form-group">
+          <%= form.label :iso_code, "Code ISO", class: "required" %>
+          <%= form.text_field :iso_code, class: "form-control", placeholder: "Code ISO", required: true %>
+        </div>
+
+        <div class="form-group">
+          <%= form.label :symbol, "Symbol" %>
+          <%= form.text_field :symbol, class: "form-control", placeholder: "Code ISO" %>
+        </div>
+
+        <div class="form-group">
+          <%= form.label :decimal_symbol, "Symbol du décimal" %>
+          <%= form.text_field :decimal_symbol, class: "form-control", placeholder: "Symbol du décimal" %>
+        </div>
+
+        <div class="form-group">
+          <%= form.label :symbol_position, "Position du symbole", class: "required" %>
+           <%= form.select :symbol_position, CURRENCY_SYMBOL_POSITIONS, {prompt: "Sélectionner"}, class: "form-control", placeholder: "Prénom" %>
+        </div>
+
+        <div class="form-group">
+          <%= form.label :thousand_separator, "Separateur de millier" %>
+          <%= form.text_field :thousand_separator, class: "form-control", placeholder: "Separateur de millier" %>
+        </div>
+      </div>
     </div>
-  <% end %>
 
-  <div class="field">
-    <%= form.label :uid %>
-    <%= form.text_field :uid %>
-  </div>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
+  
 
-  <div class="field">
-    <%= form.label :iso_code %>
-    <%= form.text_field :iso_code %>
-  </div>
+   </div>
+  <div class="modal-footer">
+    <%= link_to "Annuler", "#", class: "btn btn-secondary waves-effect", data: {dismiss: "modal"} %>
+    <%= form.submit "Enregistrer", class: "btn btn-primary waves-effect waves-light",  "data-loading-text"=>"Loading...", autocomplete: "off" %>
 
-  <div class="field">
-    <%= form.label :symbol %>
-    <%= form.text_field :symbol %>
-  </div>
-
-  <div class="field">
-    <%= form.label :decimal_symbol %>
-    <%= form.text_field :decimal_symbol %>
-  </div>
-
-  <div class="field">
-    <%= form.label :symbol_position %>
-    <%= form.text_field :symbol_position %>
-  </div>
-
-  <div class="field">
-    <%= form.label :thousand_separator %>
-    <%= form.text_field :thousand_separator %>
-  </div>
-
-  <div class="field">
-    <%= form.label :status %>
-    <%= form.text_field :status %>
-  </div>
-
-  <div class="field">
-    <%= form.label :account_id %>
-    <%= form.text_field :account_id %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
   </div>
 <% end %>

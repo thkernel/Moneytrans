@@ -2,7 +2,7 @@
     <%= form_with url: search_transferts_path, method: :get, local: true, class: "form-inlinee" do |f| %>
         <div class="row">
             
-            <div class="col-md-4">
+            <div class="col-md">
                 <div class="form-group">
                     <%= f.label "MTCN", class: "required" %>
                     <%= f.text_field :mtcn, id: :mtcn, class: "form-control ", placeholder: "MTCN", value: @selected_mtcn, required: true  %>

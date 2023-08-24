@@ -1,0 +1,11 @@
+$("ul.errors").html("");
+<% if @identity_document_type.errors.any? %>
+  <% @identity_document_type.errors.full_messages.each do |message| %>
+ 
+    $("ul.errors").append($('<div class="c-alert c-alert--danger" > ').html("<%= message.html_safe %> "));
+  <% end %>
+<% else %>
+  $(".identity-document-types").html("<%= escape_javascript(render 'index') %>");
+  $("#identity-document-type-modal").modal("hide");
+ 
+<% end %>

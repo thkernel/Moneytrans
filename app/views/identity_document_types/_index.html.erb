@@ -1,0 +1,19 @@
+<% @identity_document_types.each do |identity_document_type| %>
+    <tr>
+     
+      <td><%= identity_document_type.name %></td>
+      
+<td>
+          <div class="action-buttons">
+                    <%= link_to raw('<i class="fa fa-pencil" aria-hidden="true"></i>
+'), edit_identity_document_type_path(identity_document_type), title: "Modifier", remote: true %>
+
+
+
+
+<%= link_to raw('<i class="far fa-trash-alt" aria-hidden="true"></i>
+'), identity_document_type_delete_path(identity_document_type), remote: true, title: "Supprimer", class: "delete" %>
+</div>
+</td>
+    </tr>
+  <% end %>

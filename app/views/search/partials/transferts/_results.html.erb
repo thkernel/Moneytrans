@@ -28,14 +28,12 @@
         <td><%= transfert.status %></td>
         <td>
       <div class="action-buttons">
-      <%= link_to raw('<i class="fa fa-pencil" aria-hidden="true"></i>
-'),  edit_transfert_path(transfert), title: "Modifier", remote: true %>
+      
 
 
 
-
-<%= link_to raw('<i class="far fa-trash-alt" aria-hidden="true"></i>
-'), transfert_delete_path(transfert), remote: true, title: "Supprimer", class: "delete" %>
+<%= link_to raw('<i class="fas fa-sign-out-alt"></i>
+'), new_withdrawal_path(transfert: transfert), remote: true, title: "Retrait", class: "delete" %>
 </div>
 </td>
       </tr>
@@ -49,4 +47,5 @@
 </table>
 
 
-                       
+  <div id="withdrawal-modal" class="c-modal modal fade" data-backdrop="static"></div>
+                 

@@ -1,8 +1,8 @@
 <% @withdrawals.each do |withdrawal| %>
     <tr>
-      <td><%= withdrawal.uid %></td>
-      <td><%= withdrawal.transfert_id %></td>
-      <td><%= withdrawal.beneficiary_identity_document_type_id %></td>
+      <td><%= withdrawal.created_at.strftime("%d/%m/%Y") %></td>
+      <td><%= withdrawal.transfert.uid %></td>
+      <td><%= IdentityDocumentType.find(withdrawal.beneficiary_identity_document_type_id).name %></td>
       <td><%= withdrawal.beneficiary_identity_document_code %></td>
       <td><%= withdrawal.amount_incl_tax %></td>
       <td><%= withdrawal.status %></td>
@@ -14,7 +14,7 @@
 
 
 
-<%= link_to raw('<i class="fa fa-trash-o" aria-hidden="true"></i>
+<%= link_to raw('<i class="far fa-trash-alt" aria-hidden="true"></i>
 '), withdrawal_delete_path(withdrawal), remote: true, title: "Supprimer", class: "delete" %>
 </div>
 </td>

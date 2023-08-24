@@ -54,7 +54,7 @@ end
 unless Account.all.present?
     accounts = Account.create([
         {accountable: users[0], login: "superuser",  email: "superuser@gmail.com",  password: "AMOSXZIBITDE88", password_confirmation: "AMOSXZIBITDE88", role_id: Role.find_by(name: "Superuser").id},
-        {accountable: users[2], login: "admin",  email: "admin@gmail.com",  password: "Root@2022", password_confirmation: "Root@2022", role_id: Role.find_by(name: "Superuser").id}
+        {accountable: users[2], login: "admin",  email: "admin@gmail.com",  password: "Root@2023", password_confirmation: "Root@2023", role_id: Role.find_by(name: "Superuser").id}
         
     ])
 

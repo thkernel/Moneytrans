@@ -23,15 +23,18 @@ class IdentityDocumentTypesController < ApplicationController
 
   # POST /identity_document_types or /identity_document_types.json
   def create
-    @identity_document_type = IdentityDocumentType.new(identity_document_type_params)
+    @identity_document_type = current_account.identity_document_types.build(identity_document_type_params)
 
     respond_to do |format|
       if @identity_document_type.save
+        @identity_document_types = IdentityDocumentType.all
         format.html { redirect_to identity_document_type_url(@identity_document_type), notice: "Identity document type was successfully created." }
         format.json { render :show, status: :created, location: @identity_document_type }
+        format.js
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @identity_document_type.errors, status: :unprocessable_entity }
+        format.js
       end
     end
   end
@@ -40,14 +43,21 @@ class IdentityDocumentTypesController < ApplicationController
   def update
     respond_to do |format|
       if @identity_document_type.update(identity_document_type_params)
+        @identity_document_types = IdentityDocumentType.all
         format.html { redirect_to identity_document_type_url(@identity_document_type), notice: "Identity document type was successfully updated." }
         format.json { render :show, status: :ok, location: @identity_document_type }
+        format.js
       else
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @identity_document_type.errors, status: :unprocessable_entity }
+        format.js
       end
     end
   end
+
+  def delete
+      @identity_document_type = IdentityDocumentType.find_by(uid: params[:identity_document_type_id])
+    end
 
   # DELETE /identity_document_types/1 or /identity_document_types/1.json
   def destroy
@@ -62,11 +72,11 @@ class IdentityDocumentTypesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_identity_document_type
-      @identity_document_type = IdentityDocumentType.find(params[:id])
+      @identity_document_type = IdentityDocumentType.find_by(uid: params[:id])
     end
 
     # Only allow a list of trusted parameters through.
     def identity_document_type_params
-      params.require(:identity_document_type).permit(:uid, :name, :description, :status, :account_id)
+      params.require(:identity_document_type).permit(:name)
     end
 end

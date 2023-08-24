@@ -1,0 +1,23 @@
+<% @currencies.each do |currency| %>
+  <tr>
+   
+    <td><%= currency.name %></td>
+    <td><%= currency.iso_code %></td>
+    <td><%= currency.symbol %></td>
+    <td><%= currency.decimal_symbol %></td>
+    <td><%= currency.symbol_position %></td>
+    <td><%= currency.thousand_separator %></td>
+     <td>
+          <div class="action-buttons">
+                    <%= link_to raw('<i class="fa fa-pencil" aria-hidden="true"></i>
+'), edit_currency_path(currency), title: "Modifier", remote: true %>
+
+
+
+
+<%= link_to raw('<i class="far fa-trash-alt" aria-hidden="true"></i>
+'), currency_delete_path(currency), remote: true, title: "Supprimer", class: "delete" %>
+</div>
+</td>
+  </tr>
+<% end %>

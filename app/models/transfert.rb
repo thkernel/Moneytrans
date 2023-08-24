@@ -38,6 +38,7 @@ class Transfert < ApplicationRecord
 
   belongs_to :currency
   belongs_to :account
+  has_one :withdrawal
 
   # Change default params ID to uid
   def to_param
