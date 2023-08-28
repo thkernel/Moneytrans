@@ -7,7 +7,7 @@
         </li><!-- br-menu-item -->
 
         <li class="br-menu-item">
-          <%= link_to  raw('<i class="fas fa-exchange-alt tx-20"></i> <span class="menu-item-label">Transferts</span>'), transferts_path, class: "br-menu-link #{current? "active", transferts_path}" %>
+          <%= link_to  raw('<i class="fas fa-exchange-alt tx-20"></i> <span class="menu-item-label">Transferts</span>'), transfers_path, class: "br-menu-link #{current? "active", transfers_path}" %>
         </li><!-- br-menu-item -->
 
        
@@ -31,11 +31,11 @@
           <ul class="br-menu-sub">
 
             <li class="sub-item">
-                <%= link_to  "Transferts", root_path, class: "sub-link #{current? "active", root_path}" %>
+                <%= link_to  "Transferts", search_transfers_path, class: "sub-link #{current? "active", search_transfers_path}" %>
             </li>
 
             <li class="sub-item">
-                <%= link_to  "Retraits", root_path, class: "sub-link #{current? "active", root_path}" %>
+                <%= link_to  "Retraits", search_withdrawals_path, class: "sub-link #{current? "active", search_withdrawals_path}" %>
             </li>
 
             
@@ -70,6 +70,13 @@
 
             <li class="sub-item">
                 <%= link_to  "Utilisateurs", all_accounts_path, class: "sub-link #{current? "active", all_accounts_path}" %>
+            </li>
+
+            <li class="sub-item">
+                <%= link_to  "Pays", countries_path, class: "sub-link #{current? "active", countries_path}" %>
+            </li>
+            <li class="sub-item">
+                <%= link_to  "Motifs de transfert", transfer_reasons_path, class: "sub-link #{current? "active", transfer_reasons_path}" %>
             </li>
 
             <li class="sub-item">

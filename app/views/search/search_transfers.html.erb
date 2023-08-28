@@ -1,0 +1,35 @@
+<div class="br-pageheader mg-30">
+  <nav class="breadcrumb pd-0 mg-0 tx-12">
+    
+    <span class="breadcrumb-item active"><h4>Transferts</h4></span>
+  </nav>
+</div><!-- br-pageheader -->
+<div class="br-pagebody mg-b-30">
+    <div class="br-section-wrapper">   
+        <%= render "search/partials/transfers/search-form" %>
+        <center>
+        <%= link_to "Réinitialiser la recherche", search_transfers_path() %>
+
+        </center>
+                    
+                
+        
+    
+     
+        </div>  
+</div>
+
+
+
+<div class="br-pagebody mg-b-30">
+    <div class="br-section-wrapper">   
+        
+           
+                       
+    <%= render "search/partials/transfers/results"%>
+               
+        </div>  
+</div>
+
+
+

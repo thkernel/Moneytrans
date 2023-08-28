@@ -1,0 +1,197 @@
+<%= form_with(model: transfer, local: true) do |form| %>
+  <div class="modal-body">
+     <ul class="errors">
+      </ul>
+
+  
+<fieldset>
+  <legend>Information Générale </legend>
+  <div class="row">
+    <div class="col-md-5">
+      <div class="form-group">
+        <%= form.label :transfer_reason_id, "Motif", class: "required" %>
+        <%= form.collection_select(:transfer_reason_id, @transfer_reasons, :id, :name, {prompt: "Sélectionner"}, class: "form-control ", style: "width: 100%", required: true) %> 
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="form-group">
+        <%= form.label :amount_incl_tax, "Montant TTC", class: "required" %>
+        <%= form.number_field :amount_incl_tax, class: "form-control", required: true %>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <div class="form-group">
+        <%= form.label :transfer_currency_id, "Devise transfert", class: "required" %>
+        <%= form.collection_select(:transfer_currency_id, @currencies, :id, :iso_code, {prompt: "Sélectionner"}, class: "form-control ", style: "width: 100%", required: true) %> 
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <div class="form-group">
+        <%= form.label :withdrawal_currency_id, "Devise retrait", class: "required" %>
+        <%= form.collection_select(:withdrawal_currency_id, @currencies, :id, :iso_code, {prompt: "Sélectionner"}, class: "form-control ", style: "width: 100%", required: true) %> 
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <div class="form-group">
+        <%= form.label :standard_rate, "Taux standard", class: "required" %>
+        <%= form.number_field :standard_rate, class: "form-control", required: true %>
+      </div>
+    </div>
+
+   
+
+    <div class="col-md-3">
+      <div class="form-group">
+        <%= form.label :sell_rate, "Taux de vente", class: "required" %>
+        <%= form.number_field :sell_rate, class: "form-control", required: true %>
+      </div>
+    </div>
+
+    
+
+    
+
+    <div class="col-md-3">
+      <div class="form-group">
+        <%= form.label :expense, "Dépense", class: "required" %>
+        <%= form.number_field :expense, class: "form-control", required: true %>
+      </div>
+    </div>
+
+    
+
+
+
+  </div>
+</fieldset>
+
+
+<fieldset>
+  <legend>Expéditeur</legend>
+
+  <div class="row">
+    
+
+    <div class="col-md-3">
+      <div class="form-group">
+        <%= form.label :sender_first_name, "Prénom", class: "required" %>
+        <%= form.text_field :sender_first_name, class: "form-control ", placeholder: "Prénom", required: true %>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <div class="form-group">
+        <%= form.label :sender_last_name, "Nom", class: "required" %>
+        <%= form.text_field :sender_last_name, class: "form-control ", placeholder: "Nom", required: true %>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <div class="form-group">
+        <%= form.label :sender_gender, "Genre", class: "required" %>
+        <%= form.select :sender_gender, GENDERS, {prompt: "Sélectionner"}, class: "form-control" %>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <div class="form-group">
+        <%= form.label :sender_phone, "Téléphone", class: "required" %>
+        <%= form.text_field :sender_phone, class: "form-control ", placeholder: "Téléphone", required: true %>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <div class="form-group">
+        <%= form.label :sender_identity_document_type_id, "Type de pièce", class: "required" %>
+        <%= form.collection_select(:sender_identity_document_type_id, @identity_document_types, :id, :name, {prompt: "Sélectionner"}, class: "form-control ", style: "width: 100%", required: true) %> 
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="form-group">
+        <%= form.label :sender_identity_document_code, "N° Pièce", class: "required" %>
+        <%= form.text_field :sender_identity_document_code, class: "form-control ", placeholder: "N° Pièce d'identité", required: true %> 
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <div class="form-group">
+        <%= form.label :sender_country_id, "Pays", class: "required" %>
+       <%= form.collection_select(:sender_country_id, @countries, :id, :name, {prompt: "Sélectionner"}, class: "form-control ", style: "width: 100%", required: true) %> 
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="form-group">
+        <%= form.label :sender_city, "Ville", class: "required" %>
+        <%= form.text_field :sender_city, class: "form-control ", placeholder: "Ville", required: true %>
+      </div>
+    </div>
+  </div>
+</fieldset>
+
+
+<fieldset>
+  <legend>Bénéficiaire</legend>
+
+  <div class="row">
+    
+
+    <div class="col-md-3">
+      <div class="form-group">
+        <%= form.label :beneficiary_first_name, "Prénom", class: "required" %>
+        <%= form.text_field :beneficiary_first_name, class: "form-control ", placeholder: "Prénom", required: true %>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <div class="form-group">
+        <%= form.label :beneficiary_last_name, "Nom", class: "required" %>
+        <%= form.text_field :beneficiary_last_name, class: "form-control ", placeholder: "Nom", required: true %>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <div class="form-group">
+        <%= form.label :beneficiary_gender, "Genre", class: "required" %>
+        <%= form.select :beneficiary_gender, GENDERS, {prompt: "Sélectionner"}, class: "form-control" %>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <div class="form-group">
+        <%= form.label :beneficiary_phone, "Téléphone", class: "required" %>
+        <%= form.text_field :beneficiary_phone, class: "form-control ", placeholder: "Téléphone", required: true %>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <div class="form-group">
+        <%= form.label :beneficiary_country_id, "Pays", class: "required" %>
+        <%= form.collection_select(:beneficiary_country_id, @countries, :id, :name, {prompt: "Sélectionner"}, class: "form-control ", style: "width: 100%", required: true) %> 
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <div class="form-group">
+        <%= form.label :beneficiary_city, "Ville", class: "required" %>
+        <%= form.text_field :beneficiary_city, class: "form-control ", placeholder: "Ville", required: true %>
+      </div>
+    </div>
+  </div>
+</fieldset>
+
+ 
+
+  </div>
+
+  <div class="modal-footer">
+     
+
+      <%= link_to "Annuler", "#", class: "btn btn-secondary waves-effect", data: {dismiss: "modal"} %>
+            <%= form.submit "Enregistrer", class: "btn btn-primary waves-effect waves-light",  "data-loading-text"=>"Loading...", autocomplete: "off" %>
+
+  </div>
+<% end %>

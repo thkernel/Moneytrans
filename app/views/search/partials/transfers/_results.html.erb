@@ -1,0 +1,57 @@
+<table id="datatable-default" class="table display responsive nowrap9">
+    <thead>
+                            
+      <tr>
+        <th>Date</th>
+        <th>MTCN</th>
+        <th>Motif</th>
+        <th>Expéditeur</th>
+        <th>Bénéficiaire</th>
+        <th>Montant TTC</th>
+        
+        <th>Bénéfice brut</th>
+        <th>Dépense</th>
+        <th>Bénéfice Net</th>
+        <th>Statut</th>
+        <th>Actions</th>
+      </tr>
+                    
+      </thead>
+      <tbody >
+                     
+        <% @transfers.each do |transfer| %>
+      <tr>
+        <td><%= transfer.created_at.strftime("%d/%m/%Y") %></td>
+        <td><strong><%= transfer.mtcn %></strong></td>
+        <td><%= transfer.transfer_reason.name %></td>
+        
+        <td><%= "#{transfer.sender_last_name} #{transfer.sender_first_name}"  %></td>
+        <td><%= "#{transfer.beneficiary_last_name} #{transfer.beneficiary_first_name}" %></td> 
+        <td><%= "#{number_to_currency transfer.amount_incl_tax, unit: "", seperator: ",", delimiter: " "}" "#{transfer.transfer_currency.iso_code }" %></td>
+        <td><%= number_to_currency transfer.gross_profit, unit: "", seperator: ",", delimiter: " " %></td> 
+        <td><%= number_to_currency transfer.expense, unit: "", seperator: ",", delimiter: " " %></td>  
+        <td><%= number_to_currency transfer.net_profit, unit: "", seperator: ",", delimiter: " " %></td>   
+        <td><%= transfer.status %></td>
+        <td>
+      <div class="action-buttons">
+      
+
+
+
+<%= link_to raw('<i class="fas fa-sign-out-alt"></i>
+'), new_withdrawal_path(transfer: transfer), remote: true, title: "Retrait", class: "delete" %>
+</div>
+</td>
+      </tr>
+    <% end %>
+
+    </tbody>
+    <tfoot class="tfooter">
+        <%= render("search/partials/transfers/tfooter") %> 
+      
+    </tfoot>
+</table>
+
+
+  <div id="withdrawal-modal" class="c-modal modal fade" data-backdrop="static"></div>
+                 

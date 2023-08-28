@@ -17,9 +17,9 @@ class WithdrawalsController < ApplicationController
   # GET /withdrawals/new
   def new
     @identity_document_types = IdentityDocumentType.all
-    transfert = Transfert.find_by(uid: params[:transfert])
+    transfer = Transfer.find_by(uid: params[:transfer])
 
-    @withdrawal = transfert.build_withdrawal()
+    @withdrawal = transfer.build_withdrawal()
     #@withdrawal = Withdrawal.new
   end
 
@@ -29,11 +29,17 @@ class WithdrawalsController < ApplicationController
 
   # POST /withdrawals or /withdrawals.json
   def create
-    @withdrawal = current_account.withdrawals.build(withdrawal_params)
-    transfert = Transfert.find(@withdrawal.transfert_id)
-    @withdrawal.amount_incl_tax = transfert.amount_incl_tax
 
-    transfert.update_column(:status, "Retiré")
+    
+
+    @withdrawal = current_account.withdrawals.build(withdrawal_params)
+    transfer = Transfer.find(@withdrawal.transfer_id)
+    @withdrawal.amount_incl_tax = transfer.amount_incl_tax
+
+    #Update transfer
+    
+    transfer.update_column(:withdrawal_date, Date.today)
+    transfer.update_column(:status, "Retiré")
 
     
     respond_to do |format|
@@ -78,6 +84,6 @@ class WithdrawalsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def withdrawal_params
-      params.require(:withdrawal).permit(:transfert_id, :beneficiary_identity_document_type_id, :beneficiary_identity_document_code, :beneficiary_identity_document)
+      params.require(:withdrawal).permit(:transfer_id, :beneficiary_identity_document_type_id, :beneficiary_identity_document_code, :beneficiary_identity_document)
     end
 end

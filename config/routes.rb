@@ -1,6 +1,15 @@
 Rails.application.routes.draw do
   
 
+  resources :countries do 
+    get "delete"
+  end
+  resources :transfer_reasons do 
+    get "delete"
+  end
+  resources :companies do 
+    get "delete"
+  end
   resources :withdrawals do 
     get "delete"
   end
@@ -9,8 +18,9 @@ Rails.application.routes.draw do
     get "delete"
   end
   
-  
-  resources :transferts do 
+  get "transfers/show/:uid" => "transfers#show",as: :show_transfer
+
+  resources :transfers do 
     get "delete"
   end
 
@@ -21,7 +31,8 @@ Rails.application.routes.draw do
   #root to: "front#home"
    get "/dashboard" => "dashboard#index", as: :dashboard
 
-  get 'search/transferts' => 'search#search_transferts', as: :search_transferts 
+  get 'search/transfers' => 'search#search_transfers', as: :search_transfers 
+  get 'search/withdrawals' => 'search#search_withdrawals', as: :search_withdrawals 
   
 
   get "/accounts"     => "custom_accounts#index", as: :all_accounts 

@@ -48,11 +48,12 @@ class Account < ApplicationRecord
 
   belongs_to :role
 
-  has_many :transferts, dependent: :destroy#, optional: true
+  has_many :transfers, dependent: :destroy#, optional: true
   has_many :withdrawals, dependent: :destroy
   has_many :identity_document_types, dependent: :destroy
   has_many :currencies, dependent: :destroy
-  has_many :identity_document_types, dependent: :destroy
+  has_many :countries, dependent: :destroy
+  has_many :transfer_reasons, dependent: :destroy
 
   
   

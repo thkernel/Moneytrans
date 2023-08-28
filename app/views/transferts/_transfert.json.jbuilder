@@ -1,2 +1,0 @@
-json.extract! transfert, :id, :uid, :mtcn, :currency_id, :reason, :amount_incl_tax, :sender_name, :sender_first_name, :sender_gender, :sender_phone, :sender_id_type, :sender_country, :sender_city, :beneficiary_name, :beneficiary_first_name, :beneficiary_gender, :beneficiary_phone, :beneficiary_country, :beneficiary_city, :status, :account_id, :created_at, :updated_at
-json.url transfert_url(transfert, format: :json)

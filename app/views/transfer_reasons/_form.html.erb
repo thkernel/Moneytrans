@@ -1,0 +1,42 @@
+<%= form_with(model: transfer_reason) do |form| %>
+  <% if transfer_reason.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(transfer_reason.errors.count, "error") %> prohibited this transfer_reason from being saved:</h2>
+
+      <ul>
+        <% transfer_reason.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :uid %>
+    <%= form.text_field :uid %>
+  </div>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_field :description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :status %>
+    <%= form.text_field :status %>
+  </div>
+
+  <div class="field">
+    <%= form.label :account_id %>
+    <%= form.text_field :account_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

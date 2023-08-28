@@ -1,0 +1,78 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header align-items-center">
+                    <div class="card-header-title-text">
+                        <h1 class="uppercase">Société</h1>
+                    </div>
+                    <div class="card-header-subtitle-text">
+                        <p>Informations de votre société</p>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="profile">
+                        <!-- Start section -->
+                        <div class="profile-section-bacic-infos">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="profile-section-title">
+                                        <div class="pull-left">
+                                            <span>
+                                                <i class="fa fa-home" aria-hidden="true"></i>
+                                            </span>
+                                            <span><h3>Informations du compte</h3></span>
+                                        </div>
+                                        <div class="pull-right">
+                                            <span>
+                                                
+                                            <%= link_to "Mettre à jour", edit_company_path(get_admin_company(current_user)), title: "Modifier", remote: true %>
+                                               
+                                            </span>
+                                        </div>
+                                    </div><!-- end section title -->
+                                </div><!-- end col -->
+                            </div><!-- end row -->
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="profile-section-body">
+                                        <table class="table table-striped">
+                                            <tr>
+                                                <td class="uppercase">Nom</td>
+                                                <td ><%= get_admin_company(current_user).name  %></td>
+                                                </tr>
+
+                                            <tr>
+                                                <td class="uppercase">Adresse</td>
+                                                <td><%= get_admin_company(current_user).address  %></td>
+                                                </tr>
+                                            <tr>
+                                                <td class="uppercase">Ville</td>
+                                                <td><%= get_admin_company(current_user).city %></td>
+                                                </tr>
+                                            <tr>
+                                                <td class="uppercase">Pays</td>
+                                                <td><%= get_admin_company(current_user).country  %></td>
+                                                </tr>
+
+                                            <tr>
+                                                <td class="uppercase">Téléphone</td>
+                                                <td><%= get_admin_company(current_user).phone  %></td>
+                                                </tr>
+
+                                           
+
+                                            
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!-- end section -->
+                    </div>   
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="company-modal" class="modal fade"></div>

@@ -1,0 +1,39 @@
+<table id="datatable-default" class="table display responsive nowrap">
+    <thead>
+                            
+      <tr>
+         <th>Date</th>
+          <th>Réf. Transfert</th>
+          <th>Type pièce d'identité</th>
+          <th>N°Pièce d'identité</th>
+          <th>Montant TTC</th>
+         
+         
+          
+      </tr>
+                    
+      </thead>
+      <tbody >
+                     
+        <% @withdrawals.each do |withdrawal| %>
+          <tr>
+            <td><%= withdrawal.created_at.strftime("%d/%m/%Y") %></td>
+            <td><%= withdrawal.transfer.uid %></td>
+            <td><%= IdentityDocumentType.find(withdrawal.beneficiary_identity_document_type_id).name %></td>
+            <td><%= withdrawal.beneficiary_identity_document_code %></td>
+            <td><%= number_to_currency withdrawal.amount_incl_tax, unit: "", seperator: ",", delimiter: " " %></td>
+            
+            
+      </tr>
+        <% end %>
+
+    </tbody>
+    <tfoot class="tfooter">
+        <%= render("search/partials/withdrawals/tfooter") %> 
+      
+    </tfoot>
+</table>
+
+
+  <div id="withdrawal-modal" class="c-modal modal fade" data-backdrop="static"></div>
+                 

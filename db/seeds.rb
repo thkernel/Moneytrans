@@ -104,3 +104,83 @@ else
     identity_document_types = IdentityDocumentType.all
 
 end
+
+
+#Transfer reasons
+unless TransferReason.all.present?
+    transfer_reasons = TransferReason.create([
+        {
+            name: "Achat de bien et service", 
+            account_id: accounts.first.id,   
+        },
+        {
+            name: "Epargne", 
+            account_id: accounts.first.id,   
+        },
+        {
+            name: "Assistance familiale", 
+            account_id: accounts.first.id,   
+        },
+        {
+            name: "Frais médicaux", 
+            account_id: accounts.first.id,   
+        },
+        {
+            name: "Frais scolaire", 
+            account_id: accounts.first.id,   
+        },
+        {
+            name: "Investissement", 
+            account_id: accounts.first.id,   
+        },
+        {
+            name: "oeuvre et don", 
+            account_id: accounts.first.id,   
+        }
+        
+
+    ])
+else  
+    transfer_reasons = TransferReason.all
+
+end
+
+
+#Countries
+unless Country.all.present?
+    countries = Country.create([
+        {
+            name: "Mali", 
+            account_id: accounts.first.id,   
+        },
+        {
+            name: "Turquie", 
+            account_id: accounts.first.id,   
+        },
+        {
+            name: "France", 
+            account_id: accounts.first.id,   
+        },
+        {
+            name: "Sénégal", 
+            account_id: accounts.first.id,   
+        },
+        {
+            name: "Nigeria", 
+            account_id: accounts.first.id,   
+        },
+        {
+            name: "Togo", 
+            account_id: accounts.first.id,   
+        },
+        {
+            name: "Ghana", 
+            account_id: accounts.first.id,   
+        }
+        
+
+    ])
+else  
+    countries = Country.all
+
+end

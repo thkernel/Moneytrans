@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Uid:</strong>
+  <%= @transfer_reason.uid %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @transfer_reason.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @transfer_reason.description %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @transfer_reason.status %>
+</p>
+
+<p>
+  <strong>Account:</strong>
+  <%= @transfer_reason.account_id %>
+</p>
+
+<%= link_to 'Edit', edit_transfer_reason_path(@transfer_reason) %> |
+<%= link_to 'Back', transfer_reasons_path %>

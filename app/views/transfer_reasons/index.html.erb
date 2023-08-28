@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Transfer Reasons</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Uid</th>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Status</th>
+      <th>Account</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @transfer_reasons.each do |transfer_reason| %>
+      <tr>
+        <td><%= transfer_reason.uid %></td>
+        <td><%= transfer_reason.name %></td>
+        <td><%= transfer_reason.description %></td>
+        <td><%= transfer_reason.status %></td>
+        <td><%= transfer_reason.account_id %></td>
+        <td><%= link_to 'Show', transfer_reason %></td>
+        <td><%= link_to 'Edit', edit_transfer_reason_path(transfer_reason) %></td>
+        <td><%= link_to 'Destroy', transfer_reason, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Transfer Reason', new_transfer_reason_path %>
