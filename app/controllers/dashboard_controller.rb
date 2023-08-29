@@ -5,9 +5,11 @@ class DashboardController < ApplicationController
 	def index
 		puts "DASHBOARD INDEX"
 		@total_deposits = 0
-		@total_withdrawals = 0
+		@total_withdrawals = Withdrawal.count
+		@total_transfers = Transfer.count
+		@total_customers = Customer.count
 		
-		
+		@transfers = Transfer.take(10)
 
 	end
 	

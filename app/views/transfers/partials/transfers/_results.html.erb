@@ -13,7 +13,7 @@
         <th>Dépense</th>
         <th>Bénéfice Net</th>
         <th>Statut</th>
-        
+        <th>Actions</th>
       </tr>
                     
       </thead>
@@ -32,13 +32,22 @@
         <td><%= number_to_currency transfer.expense, unit: "", seperator: ",", delimiter: " " %></td>  
         <td><%= number_to_currency transfer.net_profit, unit: "", seperator: ",", delimiter: " " %></td>   
         <td><%= transfer.status %></td>
-        
+        <td>
+      <div class="action-buttons">
+      
+
+
+
+<%= link_to raw('<i class="fas fa-sign-out-alt"></i>
+'), new_withdrawal_path(transfer: transfer), remote: true, title: "Retrait", class: "delete" %>
+</div>
+</td>
       </tr>
     <% end %>
 
     </tbody>
     <tfoot class="tfooter">
-        <%= render("search/partials/transfers/tfooter") %> 
+        
       
     </tfoot>
 </table>

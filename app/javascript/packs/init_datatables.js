@@ -25,7 +25,7 @@ $(document).on('turbolinks:load', function() {
                 sortDescending: ": activer pour trier la colonne par ordre décroissant"
             }
         },
-        responsive: false,
+        responsive: true,
         dom: 'Bfrtip',
         buttons: [
             { extend: 'copyHtml5', footer: true },

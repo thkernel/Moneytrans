@@ -31,8 +31,10 @@ Rails.application.routes.draw do
   #root to: "front#home"
    get "/dashboard" => "dashboard#index", as: :dashboard
 
-  get 'search/transfers' => 'search#search_transfers', as: :search_transfers 
-  get 'search/withdrawals' => 'search#search_withdrawals', as: :search_withdrawals 
+  get 'histories/transfers' => 'search#search_transfers', as: :history_transfers 
+  get 'histories/withdrawals' => 'search#search_withdrawals', as: :history_withdrawals
+
+  get 'search/transfers' => 'transfers#search', as: :search_transfers 
   
 
   get "/accounts"     => "custom_accounts#index", as: :all_accounts 

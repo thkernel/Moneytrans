@@ -23,10 +23,24 @@ class TransfersController < ApplicationController
     @transfer = Transfer.new
   end
 
+
   # GET /transfers/1/edit
   def edit
     @currencies = Currency.all
     @identity_document_types = IdentityDocumentType.all
+  end
+
+  def search
+
+    
+    mtcn = params[:mtcn] if params[:mtcn].present?
+    @selected_mtcn = mtcn if mtcn.present?
+    @transfers = Transfer.search(mtcn)#.where.not(status: "Actif")
+    @total_amount_incl_tax = @transfers.sum(:amount_incl_tax)
+    @total_gross_profit = @transfers.sum(:gross_profit)
+    @total_net_profit = @transfers.sum(:net_profit)
+
+
   end
 
   # POST /transfers or /transfers.json
