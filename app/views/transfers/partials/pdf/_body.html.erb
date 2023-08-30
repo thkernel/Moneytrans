@@ -1,0 +1,55 @@
+<div class="row mg-b-30 mg-t-30">
+    <div class="col-md-6">
+       
+        <div class="row">
+            <p>
+                <b>
+                    EXPÉDITEUR/SENDER : <%= @transfer.sender_full_name %> <br />
+                </b>
+      
+                Adresse:<br/>
+
+                Téléphone: <b><%= @transfer.sender_phone %></b><br/>
+                Pièce d'identité: <b><%= @transfer.sender_identity_document_type.name %></b><br/>
+                N°: <b><%= @transfer.sender_identity_document_code %></b><br/>
+            </p>
+        </div>
+            
+        <div class="row">
+            
+            <p>
+            <b>
+                BÉNÉFICIAIRE/RECEIVER : <b><%= @transfer.beneficiary_full_name %></b> <br />
+            </b>
+      
+            Adresse:<br/>
+
+            Téléphone: <b><%= @transfer.beneficiary_phone %></b><br/>
+            </p>
+        </div>
+        
+    </div>
+                
+    <div class="col-md-6">
+        <p>
+            <div class="mtcn-code">
+                <b><center>MTCN <%= @transfer.mtcn %></center></b>
+            </div>
+        </p>
+        <p>
+            Date et heure: <strong><%= @transfer.created_at %></strong> <br />
+            Agent: <b><%= @transfer.account.login %></b> <br />
+            Destination: <b><%= @transfer.beneficiary_country.name %> </b><br />
+        </p>
+        <p>
+            Montant TTC: <b><%= "#{number_to_currency @transfer.amount_incl_tax, unit: "", seperator: ",", delimiter: " "} #{@transfer.transfer_currency.iso_code} " %> </b><br />
+            Dépense: <b><%= number_to_currency @transfer.expense, unit: "", seperator: ",", delimiter: " " %></b> <br />
+            Taxe: <b>0.0</b> <br />
+            <b>
+            TOTAL: <%= "#{number_to_currency @transfer.total, unit: "", seperator: ",", delimiter: " "} #{@transfer.transfer_currency.iso_code} " %> </b><br />
+        </p>
+    </div>
+         
+      
+    
+</div>

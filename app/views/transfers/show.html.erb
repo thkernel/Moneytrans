@@ -1,129 +1,40 @@
 
 <div class="br-pagebody mg-b-30 mg-t-80">
-  <div class="br-section-wrapper">
+    <div class="br-section-wrapper">
 
-    <div class="actions text-center mg-b-10">
-     
+        <div class="actions text-center mg-b-10">
 
+            <%= link_to raw('<i class="far fa-file-pdf tx-20"></i> Télécharger'), download_slip_path(@transfer, format: :pdf), class: "btn btn-primary tx-mont tx-medium tx-11 tx-uppercase pd-y-12 pd-x-25 tx-spacing-1", remote: false %>
       
-
-      <%= link_to raw('<i class="far fa-file-pdf tx-20"></i> Télécharger'), download_slip_path(@transfer, format: :pdf), class: "btn btn-primary tx-mont tx-medium tx-11 tx-uppercase pd-y-12 pd-x-25 tx-spacing-1", remote: false %>
-      
-    </div>
+        </div>
     
-    <div id="invoice-box" class="invoice-box mt-30 mb-30">
-        
-        <table cellpadding="0" cellspacing="0">
-            <tr class="top header">
-                <td colspan="4">
-                    <table>
-                        <tr>
-                            <td class="title">
-                              <div class="invoice-logo">
-                                	<%= image_tag "logo/logo.png", alt: "Logo" %> 
-                                </div>
-                            </td>
-                            
-                            <td>
-                                <b class="invoice-title">BORDERAU D'ENVOI N°: <%= @transfer.uid %></b><br>
-                                Crée le: <%= "#{@transfer.created_at.strftime("%d/%m/%Y")} à #{@transfer.created_at.strftime("%H:%M:%S")}"   %> <br>
-                                
-                                
-                            </td>
-                        </tr>
-                    </table>
-                </td>
-            </tr>
+        <div id="invoice-box" class="invoice-box mt-30 mb-30">
             
-            <tr class="information details mt-30 mb-30">
-                <td colspan="">
-                    <table>
-                        <tr>
+            <table cellpadding="0" cellspacing="0">
+                
 
-                            <td>
-                                <table>
-                                    <tr>
-                                        <p>
-                                            <b>
-                                                EXPÉDITEUR/SENDER : <%= @transfer.sender_full_name %> <br />
-                                            </b>
-                                  
-                                            Adresse:<br/>
+                <tr>
+                    <%= render "transfers/partials/pdf/header" %>
+                </tr>
 
-                                            Téléphone: <b><%= @transfer.sender_phone %></b><br/>
-                                            Pièce d'identité: <b><%= @transfer.sender_identity_document_type.name %></b><br/>
-                                            N°: <b><%= @transfer.sender_identity_document_code %></b><br/>
-                                        </p>
-                                    </tr>
-                                    
-                                    <tr>
-                                        <hr />
-                                        <p>
-                                        <b>
-                                            BÉNÉFICIAIRE/RECEIVER : <b><%= @transfer.beneficiary_full_name %></b> <br />
-                                        </b>
-                                  
-                                        Adresse:<br/>
+                
+                <tr>
+                    <%= render "transfers/partials/pdf/body" %>
+                </tr>
 
-                                        Téléphone: <b><%= @transfer.beneficiary_phone %></b><br/>
-                                        </p>
-                                    </tr>
-                                </table>
-                            </td>
-                            
-                            <td>
-                                <p>
-                                    <div class="mtcn-code">
-                                        <b><center>MTCN <%= @transfer.mtcn %></center></b>
-                                    </div>
-                                </p>
-                              <p>
-                              Date et heure: <strong><%= @transfer.created_at %></strong> <br />
-                              Agent: <b><%= @transfer.account.login %></b> <br />
-                              Destination: <b><%= @transfer.beneficiary_country.name %> </b><br />
-                              </p>
-                              Montant TTC: <b><%= "#{number_to_currency @transfer.amount_incl_tax, unit: "", seperator: ",", delimiter: " "} #{@transfer.transfer_currency.iso_code} " %> </b><br />
-                              Dépense: <b><%= number_to_currency @transfer.expense, unit: "", seperator: ",", delimiter: " " %></b> <br />
-                              Taxe: <b>0.0</b> <br />
-                              <b>
-                              TOTAL: <%= "#{number_to_currency @transfer.total, unit: "", seperator: ",", delimiter: " "} #{@transfer.transfer_currency.iso_code} " %> </b><br />
-                            </td>
-                        </tr>
-                    </table>
-                </td>
-            </tr>
-
-            <tr class="transfert-nb">
-              <td>
-                <p>
-                    <hr />
-                <!--Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.-->
-                </p>
-              </td>
-            </tr>
-            
-            
-            
-            <tr class="signature">
-                <td>
-                    <b>Signature du client</b>
-                </td>
-                <td>
-                    <b>Signature de l'agent</b><br />
-
-                </td>
-            </tr>
-            
-           
-           
-            
-            
-        </table>
-    </div>
+               
+                
+                
+                
+                <tr class="signature">
+                    <%= render "transfers/partials/pdf/footer" %>
+                </tr>
+            </table>
+        </div>
 
     </div>
 
-    </div>
+</div>
     <script>
      
         function printInvoice1() {

@@ -1,0 +1,19 @@
+<% @transfer_reasons.each do |transfer_reason| %>
+    <tr>
+      
+      <td><%= transfer_reason.name %></td>
+      <td>
+      <div class="action-buttons">
+      <%= link_to raw('<i class="fa fa-pencil" aria-hidden="true"></i>
+'),  edit_transfer_reason_path(transfer_reason), title: "Modifier", remote: true %>
+
+ 
+
+
+
+<%= link_to raw('<i class="far fa-trash-alt" aria-hidden="true"></i>
+'), transfer_reason_delete_path(transfer_reason), remote: true, title: "Supprimer", class: "delete" %>
+</div>
+</td>
+    </tr>
+  <% end %>

@@ -1,42 +1,22 @@
-<%= form_with(model: transfer_reason) do |form| %>
-  <% if transfer_reason.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(transfer_reason.errors.count, "error") %> prohibited this transfer_reason from being saved:</h2>
+<%= form_with(model: transfer_reason, local: false) do |form| %>
+  <div class="modal-body">
+    <ul class="errors"></ul>
 
-      <ul>
-        <% transfer_reason.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+    <div class="row">
+      <div class="col-md">
+        <div class="form-group">
+          <%= form.label :name, "Nom", class: "required" %>
+          <%= form.text_field :name, class: "form-control", placeholder: "Nom", required: true %>
+        </div>
+      </div>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= form.label :uid %>
-    <%= form.text_field :uid %>
   </div>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
+  
 
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_field :description %>
-  </div>
+  <div class="modal-footer">
+    <%= link_to "Annuler", "#", class: "btn btn-secondary waves-effect", data: {dismiss: "modal"} %>
+    <%= form.submit "Enregistrer", class: "btn btn-primary waves-effect waves-light",  "data-loading-text"=>"Loading...", autocomplete: "off" %>
 
-  <div class="field">
-    <%= form.label :status %>
-    <%= form.text_field :status %>
-  </div>
-
-  <div class="field">
-    <%= form.label :account_id %>
-    <%= form.text_field :account_id %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
   </div>
 <% end %>

@@ -1,35 +1,38 @@
-<p id="notice"><%= notice %></p>
+<div class="br-pageheader mg-30">
+      <nav class="breadcrumb pd-0 mg-0 tx-12">
+        
+        <span class="breadcrumb-item active"><h5>Motifs de transfert</h5></span>
+      </nav>
+</div><!-- br-pageheader -->
+<div class="br-pagebody">
+  <div class="br-section-wrapper">
+    <div class="headers mg-b-20">
+        <div class="left-content">
+        </div>
 
-<h1>Transfer Reasons</h1>
+        <div class="text-right">
+            <%= link_to raw('<i class="fa fa-plus" aria-hidden="true"></i> Nouveau'), new_transfer_reason_path, class: "btn btn-primary tx-mont tx-medium tx-11 tx-uppercase pd-y-12 pd-x-25 tx-spacing-1", remote: true %>
 
-<table>
+        </div>
+
+    </div>
+
+
+<table id="datatable-default" class="table display responsive nowrap">
+
   <thead>
     <tr>
-      <th>Uid</th>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Status</th>
-      <th>Account</th>
-      <th colspan="3"></th>
+      
+      <th>Nom</th>
+      <th>Actions</th>
     </tr>
   </thead>
 
-  <tbody>
-    <% @transfer_reasons.each do |transfer_reason| %>
-      <tr>
-        <td><%= transfer_reason.uid %></td>
-        <td><%= transfer_reason.name %></td>
-        <td><%= transfer_reason.description %></td>
-        <td><%= transfer_reason.status %></td>
-        <td><%= transfer_reason.account_id %></td>
-        <td><%= link_to 'Show', transfer_reason %></td>
-        <td><%= link_to 'Edit', edit_transfer_reason_path(transfer_reason) %></td>
-        <td><%= link_to 'Destroy', transfer_reason, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
+  <tbody class="transfer-reasons">
+    <%= render "index" %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Transfer Reason', new_transfer_reason_path %>
+</div>
+</div>
+<div id="transfer-reason-modal" class="c-modal modal fade" data-backdrop="static"></div>

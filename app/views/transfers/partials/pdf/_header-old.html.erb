@@ -1,0 +1,23 @@
+<tr>
+                <td>
+                    <table>
+                        <tr>
+                            <td class="title">
+                                <div class="invoice-logo">
+                                    <%= image_tag "logo/logo.png", alt: "Logo" %> 
+                                </div>
+                            </td>
+                            
+                            <td>
+                                <b class="invoice-title">
+                                    BORDERAU D'ENVOI N°: <%= @transfer.uid %>
+                                        
+                                </b>
+                                <br>
+                                Crée le: <%= "#{@transfer.created_at.strftime("%d/%m/%Y")} à #{@transfer.created_at.strftime("%H:%M:%S")}"   %> <br>
+                                
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>

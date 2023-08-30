@@ -10,6 +10,7 @@ class DashboardController < ApplicationController
 		@total_customers = Customer.count
 		
 		@transfers = Transfer.take(10)
+		@withdrawals = Withdrawal.take(10)
 
 	end
 	

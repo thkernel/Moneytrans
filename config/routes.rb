@@ -42,10 +42,11 @@ Rails.application.routes.draw do
   get "/accounts"     => "custom_accounts#index", as: :all_accounts 
   post "/accounts/new"     => "custom_accounts#create", as: :create_account
   get "/accounts/new"     => "custom_accounts#new", as: :new_account
-  get "/account/edit/:id" => "custom_accounts#edit", as: :edit_account
-  patch "/account/update/:id" => "custom_accounts#update", as: :udapte_account
-  delete "/account/destroy/:id" => "custom_accounts#destroy", as: :destroy_account
-  get "/account/delete/:id" => "custom_accounts#delete", as: :delete_account
+  get "/account/edit/:uid" => "custom_accounts#edit", as: :edit_account
+  patch "/account/update/:uid" => "custom_accounts#update", as: :udapte_account
+  get "/account/update/:uid" => "custom_accounts#update", as: :update_account
+  delete "/account/destroy/:uid" => "custom_accounts#destroy", as: :destroy_account
+  get "/account/delete/:uid" => "custom_accounts#delete", as: :delete_account
 
  
   
