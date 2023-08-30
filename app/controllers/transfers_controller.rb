@@ -1,7 +1,7 @@
 class TransfersController < ApplicationController
   
   before_action :authenticate_account!
-  before_action :set_transfer, only: %i[ show edit update destroy ]
+  before_action :set_transfer, only: %i[ show edit update destroy download ]
   layout "dashboard"
 
   # GET /transfers or /transfers.json
@@ -81,6 +81,42 @@ class TransfersController < ApplicationController
       end
     end
   end
+
+  def download
+
+        #@transfer = scope.find(params[:id])
+
+        #@transfer = scope.find(params[:id])
+
+
+
+        respond_to do |format|
+
+            format.html
+
+            format.pdf do
+
+                render pdf: "Transfer No. #{@transfer.uid}",
+
+                page_size: 'A4',
+
+                template: "transfers/pdf.html.erb",
+
+                layout: "pdf.html.erb",
+
+                orientation: "Portrait", #Landscape
+
+                lowquality: true,
+
+                zoom: 1,
+
+                dpi: 75
+
+            end
+
+        end
+
+    end
 
   def delete
     @transfer = Transfer.find_by(uid: params[:transfer_id])

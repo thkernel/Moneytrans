@@ -1,0 +1,31 @@
+/* app/assets/stylesheets/pdf.css */
+
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+} 
+table {
+  width: 100%;
+}
+
+
+#mtcn-code, #transfert-nb{
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 15px 0px 15px 0px;
+}
+.invoice-title{
+    font-size: 18pt;
+}
+.invoice-box{
+    border: 1px solid black;
+    padding: 30px;
+}
+.invoice-logo{
+    width: 250px;
+}
+
+.invoice-logo img{
+    width: 100%;
+}

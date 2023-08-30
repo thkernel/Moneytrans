@@ -20,6 +20,8 @@ Rails.application.routes.draw do
   
   get "transfers/show/:uid" => "transfers#show",as: :show_transfer
 
+  get "transfers/download/:uid" => "transfers#download",as: :download_slip
+
   resources :transfers do 
     get "delete"
   end

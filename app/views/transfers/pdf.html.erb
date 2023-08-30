@@ -2,14 +2,7 @@
 <div class="br-pagebody mg-b-30 mg-t-80">
   <div class="br-section-wrapper">
 
-    <div class="actions text-center mg-b-10">
-     
-
-      
-
-      <%= link_to raw('<i class="far fa-file-pdf tx-20"></i> Télécharger'), download_slip_path(@transfer, format: :pdf), class: "btn btn-primary tx-mont tx-medium tx-11 tx-uppercase pd-y-12 pd-x-25 tx-spacing-1", remote: false %>
-      
-    </div>
+   
     
     <div id="invoice-box" class="invoice-box mt-30 mb-30">
         
@@ -20,7 +13,8 @@
                         <tr>
                             <td class="title">
                               <div class="invoice-logo">
-                                	<%= image_tag "logo/logo.png", alt: "Logo" %> 
+                                	
+                                    <img src="<%= image_url 'logo/logo.png' %>" >
                                 </div>
                             </td>
                             
@@ -97,7 +91,7 @@
               <td>
                 <p>
                     <hr />
-                <!--Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.-->
+                <!--Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. -->
                 </p>
               </td>
             </tr>
@@ -109,7 +103,7 @@
                     <b>Signature du client</b>
                 </td>
                 <td>
-                    <b>Signature de l'agent</b><br />
+                    <b>Signature de l'agent</b>
 
                 </td>
             </tr>
@@ -124,50 +118,5 @@
     </div>
 
     </div>
-    <script>
-     
-        function printInvoice1() {
-            var divContents = document.getElementById("invoice-box").innerHTML;
-            var a = window.open('', '', 'height=500, width=500');
-
-            
-           
-            a.document.write('<html>');
-            //a.document.write(head);
-           
-            a.document.write('<body>');
-            a.document.write(divContents);
-            a.document.write('</body></html>');
-            a.document.close();
-            a.print();
-        }
-
-        function printInvoice2() {
-            var printContents = document.getElementById("invoice-box").innerHTML;
-            var originalContents = document.body.innerHTML;
-
-            document.body.innerHTML = printContents;
-
-            window.print();
-
-            document.body.innerHTML = originalContents;
-        }
-
-        function printFunc() {
-          var divToPrint = document.getElementById('invoice-box');
-          var htmlToPrint = '' +
-          '<style type="text/css">' +
-          'table th, table td {' +
-          'btransfert:1px solid #000;' +
-          '}' +
-          '</style>';
-          htmlToPrint += divToPrint.outerHTML;
-          newWin = window.open("");
-          newWin.document.write("<h3 align='center'>Print Page</h3>");
-          newWin.document.write(htmlToPrint);
-          newWin.print();
-        newWin.close();
-    }
-
-    </script>
+    
    

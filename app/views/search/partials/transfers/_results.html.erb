@@ -3,12 +3,10 @@
                             
       <tr>
         <th>Date</th>
-        <th>MTCN</th>
         <th>Motif</th>
         <th>Expéditeur</th>
         <th>Bénéficiaire</th>
         <th>Montant TTC</th>
-        
         <th>Bénéfice brut</th>
         <th>Dépense</th>
         <th>Bénéfice Net</th>
@@ -22,7 +20,7 @@
         <% @transfers.each do |transfer| %>
       <tr>
         <td><%= transfer.created_at.strftime("%d/%m/%Y") %></td>
-        <td><strong><%= transfer.mtcn %></strong></td>
+        
         <td><%= transfer.transfer_reason.name %></td>
         
         <td><%= "#{transfer.sender_last_name} #{transfer.sender_first_name}"  %></td>

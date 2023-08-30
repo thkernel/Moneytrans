@@ -113,6 +113,8 @@ gem 'acts_as_tree', '~> 2.9', '>= 2.9.1'
 gem 'whenever', '~> 0.11.0'
 
 gem 'image_processing', '~> 1.2'
+gem 'wicked_pdf', '~> 2.7'
+gem 'wkhtmltopdf-binary'
 
 
 
