@@ -386,7 +386,6 @@ GEM
       chronic (>= 0.6.3)
     wicked_pdf (2.7.0)
       activesupport
-    wkhtmltopdf-binary (0.12.6.6)
     xpath (3.2.0)
       nokogiri (~> 1.8)
     zeitwerk (2.6.11)
@@ -449,7 +448,6 @@ DEPENDENCIES
   webpacker (~> 5.0)
   whenever (~> 0.11.0)
   wicked_pdf (~> 2.7)
-  wkhtmltopdf-binary (~> 0.12.6)
 
 RUBY VERSION
    ruby 2.5.0p0
