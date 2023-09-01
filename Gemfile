@@ -114,7 +114,8 @@ gem 'whenever', '~> 0.11.0'
 
 gem 'image_processing', '~> 1.2'
 gem 'wicked_pdf', '~> 2.7'
-gem 'wkhtmltopdf-binary', '~> 0.12.6.6'
+#gem 'wkhtmltopdf-binary', '~> 0.12.6.6'
+gem 'wkhtmltopdf-binary', '~> 0.12.6'
 
 
 
