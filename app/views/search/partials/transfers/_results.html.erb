@@ -10,7 +10,7 @@
         <th>Bénéfice brut</th>
         <th>Dépense</th>
         <th>Bénéfice Net</th>
-        <th>Statut</th>
+        
         
       </tr>
                     
@@ -29,7 +29,7 @@
         <td><%= number_to_currency transfer.gross_profit, unit: "", seperator: ",", delimiter: " " %></td> 
         <td><%= number_to_currency transfer.expense, unit: "", seperator: ",", delimiter: " " %></td>  
         <td><%= number_to_currency transfer.net_profit, unit: "", seperator: ",", delimiter: " " %></td>   
-        <td><%= transfer.status %></td>
+        
         
       </tr>
     <% end %>

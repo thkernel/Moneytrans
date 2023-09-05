@@ -61,6 +61,15 @@ module ApplicationHelper
 		end
 	end
 
+	def current_company
+	
+		company = Company.take
+		if company.present?
+			company
+		end
+		
+	end
+
 	
 
 	def devise_title(controller)

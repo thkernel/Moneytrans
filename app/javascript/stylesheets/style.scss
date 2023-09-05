@@ -82,6 +82,12 @@ body{
      width: 280px !important;
 }
 
+@media (min-width: 300px){
+    .signin-logo img {
+        max-width: 230px;
+    }
+}
+
 .navbar-collapse{
     background-color: white !important;
     padding: 0px !important;

@@ -1,4 +1,7 @@
 $(document).on('turbolinks:load', function() {
+
+
+    
       $('#datatable-default').DataTable({
         
         "searching": true,

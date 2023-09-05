@@ -3,8 +3,17 @@
 
 @import "bootstrap";
 
+
+// DATATABLES
 //@import "../vendor/bracket/lib/datatables.net-dt/css/jquery.dataTables.min";
 //@import "../vendor/bracket/lib/datatables.net-responsive-dt/css/responsive.dataTables.min";
+
+
+//@import "lib/DataTables/DataTables-1.10.22/css/dataTables.bootstrap4.min";
+@import "../vendor/bracket/lib/DataTables/Responsive-2.5.0/css/responsive.bootstrap4.min";
+
+
+
 @import "../vendor/bracket/scss/bracket";
 @import "../vendor/bracket/lib/perfect-scrollbar/scs/perfect-scrollbar.min";
 @import "../vendor/bracket/lib/select2/css/select2.min";

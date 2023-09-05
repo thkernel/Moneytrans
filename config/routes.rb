@@ -47,7 +47,7 @@ Rails.application.routes.draw do
   get "/account/update/:uid" => "custom_accounts#update", as: :update_account
   delete "/account/destroy/:uid" => "custom_accounts#destroy", as: :destroy_account
   get "/account/delete/:uid" => "custom_accounts#delete", as: :delete_account
-
+  get "/companies/:uid" => "companies#show", as: :show_company
  
   
  
