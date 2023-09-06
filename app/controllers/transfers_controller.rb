@@ -84,11 +84,7 @@ class TransfersController < ApplicationController
 
   def download
 
-        #@transfer = scope.find(params[:id])
-
-        #@transfer = scope.find(params[:id])
-
-
+       
 
         respond_to do |format|
 
@@ -117,6 +113,7 @@ class TransfersController < ApplicationController
         end
 
     end
+
 
   def delete
     @transfer = Transfer.find_by(uid: params[:transfer_id])

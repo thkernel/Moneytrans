@@ -54,6 +54,7 @@ class Account < ApplicationRecord
   has_many :currencies, dependent: :destroy
   has_many :countries, dependent: :destroy
   has_many :transfer_reasons, dependent: :destroy
+  has_many :tenants, dependent: :destroy
 
   
   
@@ -84,7 +85,7 @@ class Account < ApplicationRecord
   end
 
   def admin?
-    if self.role.name == "administrateur"
+    if self.role.name == "Administrateur"
       true 
     else
       false

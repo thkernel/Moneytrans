@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_08_23_141552) do
+ActiveRecord::Schema.define(version: 2023_09_06_004629) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -212,6 +212,24 @@ ActiveRecord::Schema.define(version: 2023_08_23_141552) do
     t.index ["account_id"], name: "index_smtp_server_settings_on_account_id"
   end
 
+  create_table "tenants", force: :cascade do |t|
+    t.string "uid"
+    t.string "name"
+    t.string "social_reason"
+    t.string "address"
+    t.string "phone"
+    t.string "country"
+    t.string "city"
+    t.string "email"
+    t.string "website"
+    t.string "subdomain"
+    t.string "status"
+    t.bigint "account_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["account_id"], name: "index_tenants_on_account_id"
+  end
+
   create_table "transfer_reasons", force: :cascade do |t|
     t.string "uid"
     t.string "name"
@@ -303,6 +321,7 @@ ActiveRecord::Schema.define(version: 2023_08_23_141552) do
   add_foreign_key "permissions", "features"
   add_foreign_key "permissions", "roles"
   add_foreign_key "smtp_server_settings", "accounts"
+  add_foreign_key "tenants", "accounts"
   add_foreign_key "transfer_reasons", "accounts"
   add_foreign_key "transfers", "accounts"
   add_foreign_key "transfers", "transfer_reasons"

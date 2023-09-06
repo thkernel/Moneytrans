@@ -14,6 +14,15 @@ module SharedUtils
         end 
     end
 
+    module AppLogger
+        def cron_logger
+            @@cron_logger ||= Logger.new("#{Rails.root}/log/cron-log.log")
+        end
+
+        
+    
+    end
+
     # For model
     module Generate
         

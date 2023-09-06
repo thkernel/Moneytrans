@@ -10,6 +10,7 @@
 
 require("../vendor/bracket/lib/DataTables/DataTables-1.13.6/js/jquery.dataTables.min")
 require("../vendor/bracket/lib/DataTables/Responsive-2.5.0/js/dataTables.responsive.min")
+//require("../vendor/bracket/lib/DataTables/Buttons-2.4.2/js/buttons.dataTables.min")
 //require("../vendor/bracket/lib/DataTables/Responsive-2.5.0/js/responsive.bootstrap.min")
 
 

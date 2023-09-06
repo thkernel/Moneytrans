@@ -1,0 +1,29 @@
+<% @tenants.each do |tenant| %>
+    <tr>
+        <td><%= tenant.social_reason %></td>
+        <td><%= tenant.name %></td>
+        <td><%= tenant.address %></td>
+        <td><%= tenant.phone %></td>
+        <td><%= tenant.country %></td>
+        <td><%= tenant.city %></td>
+        <td><%= tenant.email %></td>
+        <td><%= tenant.website %></td>
+        <td><%= tenant.subdomain %></td>
+       
+        
+       
+       <td>
+					<div class="action-buttons">
+					<%= link_to raw('<i class="fa fa-pencil" aria-hidden="true"></i>
+'),  edit_tenant_path(tenant), title: "Modifier", remote: true %>
+
+
+
+
+<%= link_to raw('<i class="far fa-trash-alt" aria-hidden="true"></i>
+'), tenant_delete_path(tenant), remote: true, title: "Supprimer", class: "delete" %>
+</div>
+</td>
+
+      </tr>
+    <% end %>

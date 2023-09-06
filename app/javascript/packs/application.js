@@ -28,9 +28,10 @@ require("@rails/actiontext")
 // To fix rails-ujs error.
 window.jQuery = $;
 window.$ = $;
-
+/*
 var $ = require( 'jquery' );
 require( 'datatables.net' )( window, $ );
+*/
 
 /*
 var $ = require( 'jquery' );
@@ -40,10 +41,10 @@ require( 'datatables.net-bs' )( window, $ );
 
 import "bootstrap";
 
-//import 'datatables.net'
+import 'datatables.net'
 import 'datatables.net-bs';
 //import 'datatables.net-responsive-bs';
-//import 'datatables.net-buttons-bs';
+
 
 
 

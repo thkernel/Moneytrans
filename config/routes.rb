@@ -1,5 +1,18 @@
+
+# For subdmain.
+class SubdomainConstraint   
+  def self.matches?(request)     
+    request.subdomain.present? && request.subdomain != 'www'   
+  end 
+end 
+
 Rails.application.routes.draw do
   
+
+  resources :tenants do   
+    get "delete"
+  end
+
 
   resources :countries do 
     get "delete"
@@ -99,5 +112,8 @@ Rails.application.routes.draw do
   get "/404", to: "errors#not_found"
   get "/422", to: "errors#unacceptable"
   get "/500", to: "errors#internal_error"
+
+
+  mount API::Base, at: "/" # API
 
 end
