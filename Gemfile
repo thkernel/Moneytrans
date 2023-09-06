@@ -117,10 +117,6 @@ gem 'ros-apartment', require: 'apartment'
 gem 'image_processing', '~> 1.2'
 gem 'wicked_pdf', '~> 2.7'
 
-#gem 'prawn', '~> 2.4'
-gem 'prawn-rails'
-#gem 'wkhtmltopdf-binary', '~> 0.12.6.6'
-#gem 'wkhtmltopdf-binary', '~> 0.12.6'
 gem 'wkhtmltopdf-binary', '~> 0.12.6.2'
 
 
