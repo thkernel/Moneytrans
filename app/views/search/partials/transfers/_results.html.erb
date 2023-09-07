@@ -7,9 +7,15 @@
         <th>Expéditeur</th>
         <th>Bénéficiaire</th>
         <th>Montant TTC</th>
-        <th>Bénéfice brut</th>
+        <% if current_account.superuser? || current_account.admin? %>   
+          <th>Bénéfice brut</th>
+        <% end %>
+        
         <th>Dépense</th>
-        <th>Bénéfice Net</th>
+        <% if current_account.superuser? || current_account.admin? %>   
+          <th>Bénéfice Net</th>
+        <% end %>
+        
         
         
       </tr>
@@ -25,10 +31,22 @@
         
         <td><%= "#{transfer.sender_last_name} #{transfer.sender_first_name}"  %></td>
         <td><%= "#{transfer.beneficiary_last_name} #{transfer.beneficiary_first_name}" %></td> 
+        
         <td><%= "#{number_to_currency transfer.amount_incl_tax, unit: "", seperator: ",", delimiter: " "}" "#{transfer.transfer_currency.iso_code }" %></td>
-        <td><%= number_to_currency transfer.gross_profit, unit: "", seperator: ",", delimiter: " " %></td> 
-        <td><%= number_to_currency transfer.expense, unit: "", seperator: ",", delimiter: " " %></td>  
-        <td><%= number_to_currency transfer.net_profit, unit: "", seperator: ",", delimiter: " " %></td>   
+        
+       <% if current_account.superuser? || current_account.admin? %>   
+          <td><%= number_to_currency transfer.gross_profit, unit: "", seperator: ",", delimiter: " " %></td> 
+       <% end %>
+
+        <td>
+          <%= number_to_currency transfer.expense, unit: "", seperator: ",", delimiter: " " %>
+            
+          </td> 
+        <% if current_account.superuser? || current_account.admin? %>   
+
+          <td><%= number_to_currency transfer.net_profit, unit: "", seperator: ",", delimiter: " " %></td>  
+          <% end %>
+        
         
         
       </tr>

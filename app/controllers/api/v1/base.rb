@@ -9,7 +9,8 @@ module API
         mount API::V1::Countries
         mount API::V1::Cities
         mount API::V1::Customers
-        #mount API::V1::FidelityCards
+        mount API::V1::Transfers
+        mount API::V1::Withdrawals
         mount API::V1::Accounts
        
 

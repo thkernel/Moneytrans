@@ -91,6 +91,7 @@ ActiveRecord::Schema.define(version: 2023_09_06_004629) do
     t.string "name"
     t.string "social_reason"
     t.string "address"
+    t.bigint "country_id"
     t.string "city"
     t.string "phone"
     t.string "po_box"
@@ -100,6 +101,7 @@ ActiveRecord::Schema.define(version: 2023_09_06_004629) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["account_id"], name: "index_companies_on_account_id"
+    t.index ["country_id"], name: "index_companies_on_country_id"
   end
 
   create_table "countries", force: :cascade do |t|
@@ -218,7 +220,7 @@ ActiveRecord::Schema.define(version: 2023_09_06_004629) do
     t.string "social_reason"
     t.string "address"
     t.string "phone"
-    t.string "country"
+    t.bigint "country_id"
     t.string "city"
     t.string "email"
     t.string "website"
@@ -228,6 +230,7 @@ ActiveRecord::Schema.define(version: 2023_09_06_004629) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["account_id"], name: "index_tenants_on_account_id"
+    t.index ["country_id"], name: "index_tenants_on_country_id"
   end
 
   create_table "transfer_reasons", force: :cascade do |t|
@@ -314,6 +317,7 @@ ActiveRecord::Schema.define(version: 2023_09_06_004629) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "companies", "accounts"
+  add_foreign_key "companies", "countries"
   add_foreign_key "countries", "accounts"
   add_foreign_key "currencies", "accounts"
   add_foreign_key "identity_document_types", "accounts"
@@ -322,6 +326,7 @@ ActiveRecord::Schema.define(version: 2023_09_06_004629) do
   add_foreign_key "permissions", "roles"
   add_foreign_key "smtp_server_settings", "accounts"
   add_foreign_key "tenants", "accounts"
+  add_foreign_key "tenants", "countries"
   add_foreign_key "transfer_reasons", "accounts"
   add_foreign_key "transfers", "accounts"
   add_foreign_key "transfers", "transfer_reasons"

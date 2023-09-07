@@ -9,6 +9,8 @@
 	
 	<div class="sigin-page__body">
 		<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+
+		<%= render "accounts/shared/flash_error" %>
 			<div class="form-group">
 				<%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control",  placeholder: "Votre e-mail" %>
 			</div>

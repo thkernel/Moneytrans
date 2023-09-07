@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   resources :countries do 
     get "delete"
   end
-  resources :transfer_reasons do 
+  resources :transfer_reasons, path: "transfer-reasons" do 
     get "delete"
   end
   resources :companies do 

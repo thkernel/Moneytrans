@@ -30,6 +30,12 @@
           <%= form.text_field :phone, class: "form-control", placeholder: "Téléphone", required: true %>
         </div>
       </div>
+      <div class="col-md-4">
+        <div class="form-group">
+          <%= form.label :country_id, "Pays", class: "required" %>
+          <%= form.collection_select(:country_id, @countries, :id, :name, {prompt: "Sélectionner"}, class: "form-control ", style: "width: 100%", required: true) %> 
+        </div>
+      </div>
 
       
 

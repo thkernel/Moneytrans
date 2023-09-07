@@ -12,9 +12,19 @@ class SearchController < ApplicationController
   def search_transfers
 
     
-    mtcn = params[:mtcn] if params[:mtcn].present?
-    @selected_mtcn = mtcn if mtcn.present?
-    @transfers = Transfer.search(mtcn)#.where.not(status: "Actif")
+    #mtcn = params[:mtcn] if params[:mtcn].present?
+    #@selected_mtcn = mtcn if mtcn.present?
+    
+    start_date = Date.parse(params[:start_date]) if params[:start_date].present? 
+    end_date = Date.parse(params[:end_date]) if params[:end_date].present? 
+
+    @selected_start_date = start_date if start_date.present?
+    @selected_end_date = end_date if end_date.present?
+
+    @transfers = Transfer.search(@selected_start_date,@selected_end_date )#.where.not(status: "Actif")
+
+    
+
     @total_amount_incl_tax = @transfers.sum(:amount_incl_tax)
     @total_gross_profit = @transfers.sum(:gross_profit)
     @total_net_profit = @transfers.sum(:net_profit)

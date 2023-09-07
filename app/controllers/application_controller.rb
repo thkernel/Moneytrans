@@ -8,10 +8,10 @@ class ApplicationController < ActionController::Base
   end
 
 
-  #rescue_from CanCan::AccessDenied do |exception|  
-  #  flash[:alert] = "Access denied!"  
-  #  redirect_to dashboard_path
-  #end
+  rescue_from CanCan::AccessDenied do |exception|  
+    flash[:alert] = "Access denied!"  
+    redirect_to dashboard_path
+  end
 
 
 

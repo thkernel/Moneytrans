@@ -1,5 +1,6 @@
 class RolesController < ApplicationController
   #authorize_resource
+  load_and_authorize_resource
   before_action :authenticate_account!
   before_action :set_role, only: [:show, :edit, :update, :destroy]
   layout "dashboard"

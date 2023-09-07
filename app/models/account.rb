@@ -100,14 +100,24 @@ class Account < ApplicationRecord
     end
   end
 
-
-  def taximan?
-    if self.role.name == "Taximan"
+  def agent?
+    if self.role.name == "Agent"
       true 
     else
       false
     end
   end
+
+  def gerant?
+    if self.role.name == "Gérant"
+      true 
+    else
+      false
+    end
+  end
+
+
+  
 
 
 end

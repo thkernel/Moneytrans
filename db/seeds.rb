@@ -23,6 +23,8 @@ unless Role.all.present?
             {name: "Superuser"},
             {name: "Administrateur"},
             {name: "Client"},
+            {name: "Gérant"},
+            {name: "Agent"},
             
              
         ])

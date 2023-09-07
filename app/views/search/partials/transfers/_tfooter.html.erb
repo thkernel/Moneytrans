@@ -1,17 +1,25 @@
  
-<tr class="blue-amount">                  
-    <td colspan="4"><center>TOTAL GÉNÉRAL</center></td>
+<tr class="blue-amount"> 
+    <% if current_account.superuser? || current_account.admin? %>                 
+        <td colspan="4"><center>TOTAL GÉNÉRAL</center></td>
+    <% else %>
+        <td colspan="2"><center>TOTAL GÉNÉRAL</center></td>
+    <% end %>
     
    
     <td><strong><%= number_to_currency @total_amount_incl_tax, unit: "", seperator: ",", delimiter: " " %></strong>
     </td>
-    <td><strong><%= number_to_currency @total_gross_profit, unit: "", seperator: ",", delimiter: " " %></strong>
-    </td>
+    <% if current_account.superuser? || current_account.admin? %>   
+        <td><strong><%= number_to_currency @total_gross_profit, unit: "", seperator: ",", delimiter: " " %></strong>
+        </td>
+    <% end %>
 
     <td><strong><%= number_to_currency @total_expense, unit: "", seperator: ",", delimiter: " " %></strong>
     </td>
-    <td><strong><%= number_to_currency @total_net_profit, unit: "", seperator: ",", delimiter: " " %></strong>
-    </td>
+    <% if current_account.superuser? || current_account.admin? %>   
+        <td><strong><%= number_to_currency @total_net_profit, unit: "", seperator: ",", delimiter: " " %></strong>
+        </td>
+    <% end %>
     
     
     

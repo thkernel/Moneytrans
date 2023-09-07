@@ -1,6 +1,4 @@
-<% title "Mot de passe oublié" %>
-<% description "Réinitailser votre mot de passe" %>
-<% keywords  "Mot de passe oublié, réinitialiser, changer de mot de passe"  %>
+
 <div class="signin-page">
     <div class="signin--page__header">
 			<div class="signin-logo tx-center tx-28 tx-bold tx-inverse">
@@ -13,7 +11,7 @@
 
 
             <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-              <%= devise_error_messages! %>
+              <%= render "accounts/shared/error_messages" %>
 
               
       
@@ -25,11 +23,9 @@
               <div class="form-group text-center">
 
                   <div class="recaptcha_error">
-                    <%= flash[:recaptcha_error] %>
                   </div>
 
                   <div>
-                    <%= recaptcha_tags %>
                   </div>
                 </div>
                 

@@ -9,11 +9,12 @@
     <div class="headers mg-b-20">
         <div class="left-content">
         </div>
-
+        <% if can? :create, Withdrawal %>
         <div class="text-right">
             <%= link_to raw('<i class="fa fa-plus" aria-hidden="true"></i> Nouveau retrait'), search_transfers_path, class: "btn btn-primary tx-mont tx-medium tx-11 tx-uppercase pd-y-12 pd-x-25 tx-spacing-1", remote: false %>
 
         </div>
+        <% end %>
 
     </div>
 

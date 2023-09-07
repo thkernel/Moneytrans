@@ -30,6 +30,8 @@ require("../vendor/bracket/lib/perfect-scrollbar/perfect-scrollbar.min")
 //import "../vendor/bracket/lib/echarts/echarts.min";
 require("../vendor/bracket/lib/select2/js/select2.full.min");
 
+
+require("../vendor/bracket/lib/bootstrap/js/bootstrap.bundle.min")
 require("../vendor/bracket/js/bracket")
 require("../vendor/bracket/js/ResizeSensor")
 require("../vendor/bracket/js/dashboard")

@@ -1,6 +1,6 @@
-APPLICATION_NAME = "Moneytrans"
-APPLICATION_SLOGAN = "Commandez votre taxi en toute sécurité!"
-APPLICATION_DESCRIPTION = "Plateforme de reservation de taxi à Bamako."
+APPLICATION_NAME = "FreeTransfert"
+APPLICATION_SLOGAN = "Transfert d'argent en toute simplicité!"
+APPLICATION_DESCRIPTION = ""
 APPLICATION_KEYWORDS = [""]
 
 GENDERS = [["Homme"], ["Femme"]]

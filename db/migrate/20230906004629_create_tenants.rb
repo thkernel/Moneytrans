@@ -6,7 +6,7 @@ class CreateTenants < ActiveRecord::Migration[6.1]
       t.string :social_reason
       t.string :address
       t.string :phone
-      t.string :country
+      t.references :country, foreign_key: true
       t.string :city
       t.string :email
       t.string :website

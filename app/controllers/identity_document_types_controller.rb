@@ -1,4 +1,5 @@
 class IdentityDocumentTypesController < ApplicationController
+  load_and_authorize_resource
   before_action :authenticate_account!
   before_action :set_identity_document_type, only: %i[ show edit update destroy ]
   layout "dashboard"

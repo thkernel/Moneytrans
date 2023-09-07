@@ -70,8 +70,11 @@ class CustomAccountsController < ApplicationController
     # GET /users/1/edit
     def edit
 			
-			
-			@roles = Role.where.not(name: "Superuser")
+			if current_account.superuser?
+				@roles = Role.all
+			else
+				@roles = Role.where.not(name: "Superuser")
+			end
 			#@account.profile || @account.build_profile 
     end
 

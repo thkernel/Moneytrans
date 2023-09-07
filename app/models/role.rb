@@ -16,7 +16,12 @@ class Role < ApplicationRecord
   # Include shared utils.
   include SharedUtils::Generate
 
+
+
   before_save :generate_random_number_uid
+
+  has_many :permissions, dependent: :destroy
+  has_many :accounts, dependent: :destroy 
  
 
     validates :name, presence: true, uniqueness: true

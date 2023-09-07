@@ -88,17 +88,19 @@ class Transfer < ApplicationRecord
 
 
   # Search by account
-  def self.search(mtcn)  
+  def self.search(start_date, end_date)  
     query = Transfer.order(:created_at)
-    #query = query.where("DATE(created_at) BETWEEN ? AND ? ", start_date, end_date) if start_date.present? and  end_date.present?
+    query = query.where("DATE(created_at) BETWEEN ? AND ? ", start_date, end_date) if start_date.present? and  end_date.present?
     #query = query.where("account_id =  ?", account) if account.present?
     #query = query.where("order_type =  ?", order_type) if order_type.present?
-    query = query.where("mtcn =  ?", mtcn) if mtcn.present?
+    #query = query.where("mtcn =  ?", mtcn) if mtcn.present?
      
     query
         
        
   end
+
+
 
 
   # Search by customer

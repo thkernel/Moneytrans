@@ -8,8 +8,10 @@ namespace :data do
 	    roles = Role.create(
 	        [
 	            {name: "Superuser"},
-	            {name: "Administrateur"},
-	            {name: "Client"},
+                {name: "Administrateur"},
+                {name: "Client"},
+                {name: "Gérant"},
+                {name: "Agent"},
 	            
 
 	            
@@ -21,185 +23,38 @@ namespace :data do
 	end
 
 
-	# Accounts
-	unless Account.all.present?
-	    accounts = Account.create([
-	        {login: "superuser",  email: "superuser@gmail.com",  password: "AMOSXZIBITDE88", password_confirmation: "AMOSXZIBITDE88", role_id:  Role.find_by(name: "superuser").id},
-	        
-
-	    
-	    ])
-	else   
-	    accounts = Account.all
-	end
-
-	# Profile
-	#unless Profile.all.present?
-	#    profile = Profile.create([
-	#        {
-	#            first_name: "Super",  
-	#            last_name: "User",
-	#            #service_id: services.first.id,   
-	#            user_id: User.find_by(login: "superuser").id
-	#        }
-	#    
-	#    ])
-
-	#end
+	# Users
+    unless User.all.present?
+        users = User.create([
+            {
+                first_name: "Amos", 
+                last_name: "DEMBELE",
+            },
+            {
+                first_name: "Admin", 
+                last_name: "Admin",
+            },
+            
+        ])
+    else
+        users = User.all
+    end
 
 
+    # Accounts
+    unless Account.all.present?
+        accounts = Account.create([
+            {accountable: users[0], login: "superuser",  email: "superuser@gmail.com",  password: "AMOSXZIBITDE88", password_confirmation: "AMOSXZIBITDE88", role_id: Role.find_by(name: "Superuser").id},
+            {accountable: users[2], login: "admin",  email: "admin@gmail.com",  password: "Root@2023", password_confirmation: "Root@2023", role_id: Role.find_by(name: "Superuser").id}
+            
+        ])
 
-=begin
-	unless Feature.all.present?
-	    features = Feature.create([
-	        {
-	            name: "Courrier d'arrivée",
-	            subject_class: "ArrivalMail"
-	            
-	        },
-	        {
-	            name: "Courrier départ" ,
-	            subject_class: "DepartureMail"
-	            
-	        },
-	        {
-	            name: "Imputation",
-	            subject_class: "Imputation"
-	            
-	        },
-	        {
-	            name: "Rôle",
-	            subject_class: "Role"
-	            
-	        },
-	        {
-	            name: "Division",
-	            subject_class: "Division" 
-	            
-	        },
-	        {
-	            name: "Logs",
-	            subject_class: "ActivityLog"
-	            
-	        },
-	        {
-	            name: "Correspondant",
-	            subject_class: "Correspondent"
-	            
-	        },
-	        {
-	            name: "Type de correspondant",
-	            subject_class: "CorrespondentType" 
-	            
-	        },
-	        {
-	            name: "Service",
-	            subject_class: "Service"
-	            
-	        },
-	        {
-	            name: "Configuration SMTP",
-	            subject_class: "SmtpConfig" 
-	            
-	        },
-
-	        {
-	            name: "Registre",
-	            subject_class: "Register"
-	            
-	        },
-	        {
-	            name: "Nature",
-	            subject_class: "Nature" 
-	            
-	        },
-	        {
-	            name: "Support",
-	            subject_class: "Support" 
-	            
-	        },
-	        {
-	            name: "Dossier",
-	            subject_class: "Folder" 
-	            
-	        },
-	        {
-	            name: "Direction",
-	            subject_class: "Direction" 
-	            
-	        },
-	        {
-	            name: "Demande",
-	            subject_class: "Request" 
-	            
-	        },
-	        {
-	            name: "Type de demande",
-	            subject_class: "RequestType"
-	            
-	        },
-	        {
-	            name: "Ticket",
-	            subject_class: "Ticket" 
-	            
-	        },
-	        {
-	            name: "Document",
-	            subject_class: "Document" 
-	            
-	        },
-	        {
-	            name: "Commantaire",
-	            subject_class: "Comment" 
-	            
-	        },
-	        {
-	            name: "Organisation",
-	            subject_class: "Organization" 
-	            
-	        },
-	        {
-	            name: "Type d'organisation",
-	            subject_class: "OrganizationType" 
-	            
-	        },
-	        {
-	            name: "Type de tâche",
-	            subject_class: "TaskType"   
-	        },
-	        {
-	            name: "Status des tâches",
-	            subject_class: "TastStatus" 
-	            
-	        },
-	        {
-	            name: "Permission",
-	            subject_class: "Permission" 
-	            
-	        },
-	        {
-	            name: "Utilisateur",
-	            subject_class: "User" 
-	            
-	        },
-	        {
-	            name: "Paramètre"
-	        },
-	        {
-	            name: "Configuration" 
-	        }
-	    
-	    ])
-
-	end
+    else
+        accounts = Account.all
+    end
 
 
-	
 
-
-  end
-
-=end
 
 
 

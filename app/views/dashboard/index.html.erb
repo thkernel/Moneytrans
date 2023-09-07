@@ -3,11 +3,13 @@
     <%= render "dashboard/partials/superuser_dashboard" %>
 <% elsif current_account.admin? %>
      <%= render "dashboard/partials/superuser_dashboard" %>
-<% elsif current_account.customer? %>
-    <%= render "dashboard/partials/customer_dashboard" %>
 
-<% elsif current_account.taximan? %>
-    <%= render "dashboard/partials/taximan_dashboard" %>
+
+<% elsif current_account.agent? %>
+    <%= render "dashboard/partials/agent_dashboard" %>
+
+<% elsif current_account.gerant? %>
+    <%= render "dashboard/partials/gerant_dashboard" %>
 
 <% end %>
 

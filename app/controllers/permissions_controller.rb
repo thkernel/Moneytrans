@@ -26,13 +26,14 @@ class PermissionsController < ApplicationController
 
   # GET /permissions/1/edit
   def edit
-    #@features = Feature.all 
-    #@roles = Role.where.not(name: ["superuser", "root"])
-    @departments = Department.all
-    department_sevices = @service.department_services
+   
 
-    @selected_departments = department_services unless department_services.blank?
+    @features = Feature.all 
+    @roles = Role.where.not(name: ["superuser", "root"])
+   
+    permission_items = @permission.permission_items
 
+    @selected_permissions = permission_items unless permission_items.blank?
   end
 
   # POST /permissions
@@ -66,16 +67,16 @@ class PermissionsController < ApplicationController
   def update
     @permission.permission_items.delete_all
      # Create Scholarship study levels
-     params[:permissions][:id].each do |permission|
-      unless permission.empty?
-        @permission.permission_items.build(permission_id: permission)
+     params[:permission_items][:permission_actions].each do |permission_action|
+      unless permission_action.empty?
+        @permission.permission_items.build(action_name: permission_action)
       end
     end
 
     respond_to do |format|
       if @permission.update(permission_params)
-        @permissions = permission.all
-        format.html { redirect_to @permission, notice: 'permission was successfully updated.' }
+        @permissions = Permission.all
+        format.html { redirect_to @permission, notice: 'Modifier avec succès.' }
         format.json { render :show, status: :ok, location: @permission }
         format.js
       else
@@ -84,6 +85,11 @@ class PermissionsController < ApplicationController
         format.js
       end
     end
+  end
+
+
+  def delete
+    @permission = Permission.find_by(uid: params[:permission_id])
   end
 
   # DELETE /permissions/1
@@ -99,7 +105,7 @@ class PermissionsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_permission
-      @permission = Permission.find(params[:id])
+      @permission = Permission.find_by(uid: params[:id])
     end
 
     # Only allow a list of trusted parameters through.

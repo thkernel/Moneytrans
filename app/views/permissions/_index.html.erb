@@ -1,8 +1,8 @@
 <% @permissions.each do |permission| %>
     <tr>
-    <td><%= role(permission.role_id).name %></td>
+    <td><%= permission.role.name %></td>
    
-    <td><%= feature(permission.feature_id).name %></td>
+    <td><%= permission.feature.name %></td>
     <td>
     <% permission.permission_items.each do |item| %>
         <span class="permission-item">
@@ -18,7 +18,7 @@
 
 
 
-<%= link_to raw('<i class="fa fa-trash-o" aria-hidden="true"></i>
+<%= link_to raw('<i class="far fa-trash-alt" aria-hidden="true"></i>
 '), permission_delete_path(permission), remote: true, title: "Supprimer", class: "delete" %>
 </div>
 </td>
