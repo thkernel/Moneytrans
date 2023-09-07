@@ -35,7 +35,7 @@ class TransfersController < ApplicationController
     
     mtcn = params[:mtcn] if params[:mtcn].present?
     @selected_mtcn = mtcn if mtcn.present?
-    @transfers = Transfer.search(mtcn)#.where.not(status: "Actif")
+    @transfers = Transfer.search_by_mtcn(mtcn)#.where.not(status: "Actif")
     @total_amount_incl_tax = @transfers.sum(:amount_incl_tax)
     @total_gross_profit = @transfers.sum(:gross_profit)
     @total_net_profit = @transfers.sum(:net_profit)
