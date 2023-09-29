@@ -35,6 +35,9 @@ Rails.application.routes.draw do
 
   get "transfers/download/:uid" => "transfers#download",as: :download_slip
 
+  get "/transfers/cancel/:uid" => "transfers#get_cancel", as: :get_cancel_transfer
+  post "/transfers/cancel/:uid" => "transfers#post_cancel", as: :post_cancel_transfer
+
   resources :transfers do 
     get "delete"
   end

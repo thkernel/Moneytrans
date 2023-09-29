@@ -20,10 +20,16 @@
 '), show_transfer_path(transfer), title: "Voir", remote: false %>
 
 
+<% if unconfirmed_transfer?(transfer) %>
+    <% if can? :destroy, Transfer %>
+        <%= link_to raw('<i class="fa fa-ban" aria-hidden="true"></i>
+    '), get_cancel_transfer_path(uid: transfer.uid), remote: true, title: "Annuler", class: "delete" %>
+    <% end %>
 
+<% end %>
 
-<%= link_to raw('<i class="far fa-trash-alt" aria-hidden="true"></i>
-'), transfer_delete_path(transfer), remote: true, title: "Supprimer", class: "delete" %>
+<!-- link_to raw('<i class="far fa-trash-alt" aria-hidden="true"></i>
+'), transfer_delete_path(transfer), remote: true, title: "Supprimer", class: "delete" -->
 </div>
 </td>
       </tr>

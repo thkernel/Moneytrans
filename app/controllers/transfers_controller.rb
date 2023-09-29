@@ -1,7 +1,9 @@
 class TransfersController < ApplicationController
-  load_and_authorize_resource
+  #load_and_authorize_resource
   before_action :authenticate_account!
   before_action :set_transfer, only: %i[ show edit update destroy download ]
+  load_and_authorize_resource :except => [:get_cancel, :post_cancel]
+
   layout "dashboard"
 
   # GET /transfers or /transfers.json
@@ -81,6 +83,23 @@ class TransfersController < ApplicationController
       end
     end
   end
+
+  def get_cancel
+    @transfer = Transfer.find_by(uid: params[:uid])
+    
+  end
+
+  def post_cancel
+    @transfer = Transfer.find_by(uid: params[:uid])
+    #@transfer.update_column(:paid, "Annulée")
+    @transfer.update_column(:status, "Annulé")
+
+    respond_to do |format|
+      format.html { redirect_to transfers_url, notice: "Transfert annulé avec succès." }
+      format.json { head :no_content }
+    end
+  end
+
 
   def download
 
