@@ -1,6 +1,6 @@
 class TransfersController < ApplicationController
   #load_and_authorize_resource
-  before_action :authenticate_account!
+  before_action :authenticate_account!, except: [:download]
   before_action :set_transfer, only: %i[ show edit update destroy download ]
   load_and_authorize_resource :except => [:get_cancel, :post_cancel]
 
