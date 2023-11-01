@@ -76,11 +76,12 @@
                               Agent: <b><%= @transfer.account.login %></b> <br />
                               Destination: <b><%= @transfer.beneficiary_country.name %> </b><br />
                               </p>
-                              Montant TTC: <b><%= "#{number_to_currency @transfer.amount_incl_tax, unit: "", seperator: ",", delimiter: " "} #{@transfer.transfer_currency.iso_code} " %> </b><br />
-                              Dépense: <b><%= number_to_currency @transfer.expense, unit: "", seperator: ",", delimiter: " " %></b> <br />
-                              Taxe: <b>0.0</b> <br />
-                              <b>
-                              TOTAL: <%= "#{number_to_currency @transfer.total, unit: "", seperator: ",", delimiter: " "} #{@transfer.transfer_currency.iso_code} " %> </b><br />
+                              Montant TTC envoyé: <b><%= "#{number_to_currency @transfer.amount_incl_tax, unit: "", seperator: ",", delimiter: " "} #{@transfer.transfer_currency.iso_code} " %> </b><br />
+
+                              Montant TTC retrait: <b><%= "#{number_to_currency @transfer.amount_incl_tax, unit: "", seperator: ",", delimiter: " "} #{@transfer.withdrawal_currency.iso_code} " %> </b><br />
+                              
+                              <!--Taxe: <b>0.0</b> <br /> -->
+                              
                             </td>
                         </tr>
                     </table>

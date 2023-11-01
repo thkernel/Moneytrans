@@ -86,6 +86,9 @@ class Transfer < ApplicationRecord
    
   end
 
+  def withdrawal_amount
+  end
+
 
   # Search by account
   def self.search_by_mtcn(mtcn)  
